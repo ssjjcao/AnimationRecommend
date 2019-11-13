@@ -1,14 +1,14 @@
-## <center>_Animation Recommend Database Design_</center>
-### <center>_version 3.0_</center>
+## _Animation Recommend Database Design_
+### _version 3.0_
 
 ### _Table Name_
- #### * [_User_](#User)
- #### * [_Animation_](#Animation)
- #### * [_Type_](#Type)
- #### * [_AnimationConnectType_](#AnimationConnectType)
- #### * [_UserConnectType_](#UserConnectType)
- #### * [_UserAttitudeToAnimation_](#UserAttitudeToAnimation)
- #### * [_UserCommentAnimation_](#UserCommentAnimation)
+  * [_User_](#User)
+  * [_Animation_](#Animation)
+  * [_Type_](#Type)
+  * [_AnimationConnectType_](#AnimationConnectType)
+  * [_UserConnectType_](#UserConnectType)
+  * [_UserAttitudeToAnimation_](#UserAttitudeToAnimation)
+  * [_UserCommentAnimation_](#UserCommentAnimation)
  
 ### <span id="User">_user_</span>
 
