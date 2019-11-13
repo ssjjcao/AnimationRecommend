@@ -1,5 +1,5 @@
-## _Animation Recommend Database Design_
-### _version 3.0_
+## <center>_Animation Recommend Database Design_</center>
+### <center>_version 3.0_</center>
 
 ### _Table Name_
  #### * [_User_](#User)
