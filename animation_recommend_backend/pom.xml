@@ -8,11 +8,11 @@
         <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.animation_recommend</groupId>
+    <groupId>animation_recommend_backend</groupId>
     <artifactId>animation_recommend_backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>animation_recommend_backend</name>
-    <description>Demo project for Spring Boot</description>
+    <description>animation_recommend_backend project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>

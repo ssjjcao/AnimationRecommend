@@ -1,4 +1,4 @@
-package com.animation_recommend.animation_recommend_backend;
+package animation_recommend_backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
