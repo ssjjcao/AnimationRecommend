@@ -16,9 +16,10 @@
 |:----:|:----:|:----:|:----:|
 | id | 伪主键 | Integer |
 | name | 用户名 | String | name可以唯一映射一个用户，不允许出现重复用户名 |
-| email | 邮件 | String | email可以唯一映射一个用户，不允许出现重复email |
 | password | 密码 | String |
 | signature | 个性签名 | String |
+| createTime | 创建时间 | timestamp | 方便数据库维护 |
+| updateTime | 更新时间 | timestamp | 方便数据库维护 |
 
 ### <span id="Animation">_Animation_</span>
 
@@ -33,6 +34,8 @@
 | likeNum | 点赞数 | Integer |
 | unlikeNum | 点踩数 | Integer |
 | referrer | 推荐人 | String |
+| createTime | 创建时间 | timestamp | 方便数据库维护 |
+| updateTime | 更新时间 | timestamp | 方便数据库维护 |
 
 ### <span id="Type">_Type_</span>
 
@@ -40,6 +43,8 @@
 |:----:|:----:|:----:|
 |id | 伪主键 | Integer |
 |name | 番剧类型 | String |
+| createTime | 创建时间 | timestamp |
+| updateTime | 更新时间 | timestamp |
 
 ### <span id="AnimationConnectType">_AnimationConnectType_</span>
 
@@ -47,6 +52,8 @@
 |:----:|:----:|:----:|
 | animationID | 番剧id | Integer |
 | typeID | 番剧类型id | Integer |
+| createTime | 创建时间 | timestamp |
+| updateTime | 更新时间 | timestamp |
 
 ### <span id="UserConnectType">_UserConnectType_</span>
 
@@ -54,6 +61,8 @@
 |:----:|:----:|:----:|
 | userID | 用户id | Integer |
 | typeID | 番剧类型id | Integer |
+| createTime | 创建时间 | timestamp |
+| updateTime | 更新时间 | timestamp |
 
 ### <span id="UserAttitudeToAnimation">_UserAttitudeToAnimation_</span>
 
@@ -62,6 +71,8 @@
 | userID | 用户id | Integer |
 | animationID | 番剧id | Integer |
 | favorite | true or false or null 表示是否喜欢 | Boolean |
+| createTime | 创建时间 | timestamp |
+| updateTime | 更新时间 | timestamp |
 
 ### <span id="UserCommentAnimation">_UserCommentAnimation_</span>
 
@@ -70,3 +81,5 @@
 | userID | 用户id | Integer |
 | animationID | 番剧id | Integer |
 | comment | 评论 | String |
+| createTime | 创建时间 | timestamp |
+| updateTime | 更新时间 | timestamp |
