@@ -1,5 +1,5 @@
 ## _Animation Recommend Database Design_
-### _version 3.0_
+### _version 4.0_
 
 ### _Table Name_
   * [_User_](#User)
@@ -30,6 +30,7 @@
 | recommendation | 推荐语 | String |
 | cover |封面图 | String |
 | detail| 详情 | String |
+| link | 观看链接 | String |
 | pageView| 浏览量 | Integer |
 | likeNum | 点赞数 | Integer |
 | unlikeNum | 点踩数 | Integer |
