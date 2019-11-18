@@ -20,8 +20,8 @@ public class Type {
     private Set<User> users = new HashSet<>();
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
-    @JoinTable(name = "animation_type", inverseJoinColumns = @JoinColumn(name = "animationID", referencedColumnName = "id")
-            , joinColumns = @JoinColumn(name = "typeID", referencedColumnName = "id"))
+    @JoinTable(name = "animation_type", inverseJoinColumns = @JoinColumn(name = "animationID")
+            , joinColumns = @JoinColumn(name = "typeID"))
     private Set<Animation> animations = new HashSet<>();
 
     public int getId() {

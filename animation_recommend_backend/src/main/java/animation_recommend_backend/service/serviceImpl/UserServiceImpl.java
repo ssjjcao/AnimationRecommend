@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
     public User getUserByName(String name) {
-        return userRepository.findByName(name);
+        return this.userRepository.findByName(name);
     }
 }

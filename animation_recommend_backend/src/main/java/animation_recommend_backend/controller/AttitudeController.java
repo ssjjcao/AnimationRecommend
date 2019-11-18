@@ -1,12 +1,12 @@
 package animation_recommend_backend.controller;
 
-import animation_recommend_backend.service.TypeService;
+import animation_recommend_backend.service.AttitudeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 @Controller
 
-public class TypeController {
+public class AttitudeController {
     @Autowired
-    private TypeService typeService;
+    private AttitudeService attitudeService;
 }

@@ -18,11 +18,11 @@ link VARCHAR(255),
 pageView INT NOT NULL DEFAULT 0,
 likeNum INT NOT NULL DEFAULT 0,
 unlikeNum INT NOT NULL DEFAULT 0,
-referrerId INT NOT NULL,
+referrerID INT NOT NULL,
 createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 UNIQUE(name),
-foreign key(referrerId) references User(id)
+foreign key(referrerID) references User(id)
 ) character set utf8;
 
 CREATE TABLE IF NOT EXISTS Type(
@@ -54,6 +54,7 @@ primary key(userID,typeID)
 ) character set utf8;
 
 CREATE TABLE IF NOT EXISTS Attitude(
+id INT NOT NULL auto_increment primary key,
 userID INT NOT NULL,
 animationID INT NOT NULL,
 favorite BOOLEAN,
@@ -61,10 +62,11 @@ createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 foreign key(userID) references User(id),
 foreign key(animationID) references Animation(id),
-primary key(userID,animationID)
+unique key(userID,animationID)
 ) character set utf8;
 
-CREATE TABLE IF NOT EXISTS Comments(
+CREATE TABLE IF NOT EXISTS Comment(
+id INT NOT NULL auto_increment primary key,
 userID INT NOT NULL,
 animationID INT NOT NULL,
 comment VARCHAR(255) NOT NULL,
@@ -72,5 +74,5 @@ createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 foreign key(userID) references User(id),
 foreign key(animationID) references Animation(id),
-primary key(userID,animationID,comment)
+unique key(userID,animationID,comment)
 ) character set utf8;

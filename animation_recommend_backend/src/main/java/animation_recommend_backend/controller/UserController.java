@@ -22,7 +22,7 @@ public class UserController {
     @ResponseBody
     public ResponseEntity<Object> getUser(HttpServletRequest request) {
         String userName = request.getParameter("userName");
-        User user = userService.getUserByName(userName);
+        User user = this.userService.getUserByName(userName);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

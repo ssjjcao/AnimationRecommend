@@ -28,13 +28,19 @@ public class Animation {
     private int unlikeNum;
 
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
-    @JoinTable(name = "animation_type", joinColumns = @JoinColumn(name = "animationID", referencedColumnName = "id")
-            , inverseJoinColumns = @JoinColumn(name = "typeID", referencedColumnName = "id"))
+    @JoinTable(name = "animation_type", joinColumns = @JoinColumn(name = "animationID")
+            , inverseJoinColumns = @JoinColumn(name = "typeID"))
     private Set<Type> types = new HashSet<>();
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, optional = false)
-    @JoinColumn(name = "referrer_id")
+    @JoinColumn(name = "referrerID")
     private User user;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "animation")
+    private Set<Comment> comments = new HashSet<>();
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "animation")
+    private Set<Attitude> attitudes = new HashSet<>();
 
     public int getId() {
         return id;
@@ -130,5 +136,37 @@ public class Animation {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public void addComment(Comment comment) {
+        this.comments.add(comment);
+    }
+
+    public void removeComment(Comment comment) {
+        this.comments.remove(comment);
+    }
+
+    public Set<Attitude> getAttitudes() {
+        return attitudes;
+    }
+
+    public void setAttitudes(Set<Attitude> attitudes) {
+        this.attitudes = attitudes;
+    }
+
+    public void addAttitude(Attitude attitude) {
+        this.attitudes.add(attitude);
+    }
+
+    public void removeAttitude(Attitude attitude) {
+        this.attitudes.remove(attitude);
     }
 }

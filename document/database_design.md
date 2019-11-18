@@ -1,5 +1,5 @@
 ## _Animation Recommend Database Design_
-### _version 6.0_
+### _version 7.0_
 
 ### _Table Name_
   * [_User_](#User)
@@ -8,7 +8,7 @@
   * [_Animation_Type_](#Animation_Type)
   * [_User_Type_](#User_Type)
   * [_Attitude_](#Attitude)
-  * [_Comments_](#Comments)
+  * [_Comment_](#Comment)
  
 ### <span id="User">_user_</span>
 
@@ -69,16 +69,18 @@
 
 | 字段名 | 字段意义 | 类型 |
 |:----:|:----:|:----:|
+| id | 伪主键 | Integer |
 | userID | 用户id | Integer |
 | animationID | 番剧id | Integer |
 | favorite | true or false or null 表示是否喜欢 | Boolean |
 | createTime | 创建时间 | timestamp |
 | updateTime | 更新时间 | timestamp |
 
-### <span id="Comments">_Comments_</span>
+### <span id="Comment">_Comment_</span>
 
 | 字段名 | 字段意义 | 类型 |
 |:----:|:----:|:----:|
+| id | 伪主键 | Integer |
 | userID | 用户id | Integer |
 | animationID | 番剧id | Integer |
 | comment | 评论 | String |
