@@ -33,7 +33,7 @@ updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 UNIQUE(name)
 ) character set utf8;
 
-CREATE TABLE IF NOT EXISTS AnimationConnectType(
+CREATE TABLE IF NOT EXISTS Animation_Type(
 animationID INT NOT NULL,
 typeID INT NOT NULL,
 createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -43,7 +43,7 @@ foreign key(typeID) references Type(id),
 primary key(animationID,typeID)
 ) character set utf8;
 
-CREATE TABLE IF NOT EXISTS UserConnectType(
+CREATE TABLE IF NOT EXISTS User_Type(
 userID INT NOT NULL,
 typeID INT NOT NULL,
 createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -53,7 +53,7 @@ foreign key(typeID) references Type(id),
 primary key(userID,typeID)
 ) character set utf8;
 
-CREATE TABLE IF NOT EXISTS UserAttitudeToAnimation(
+CREATE TABLE IF NOT EXISTS Attitude(
 userID INT NOT NULL,
 animationID INT NOT NULL,
 favorite BOOLEAN,
@@ -64,7 +64,7 @@ foreign key(animationID) references Animation(id),
 primary key(userID,animationID)
 ) character set utf8;
 
-CREATE TABLE IF NOT EXISTS UserCommentAnimation(
+CREATE TABLE IF NOT EXISTS Comments(
 userID INT NOT NULL,
 animationID INT NOT NULL,
 comment VARCHAR(255) NOT NULL,

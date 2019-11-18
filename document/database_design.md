@@ -1,13 +1,13 @@
 ## _Animation Recommend Database Design_
-### _version 5.0_
+### _version 6.0_
 
 ### _Table Name_
   * [_User_](#User)
   * [_Animation_](#Animation)
   * [_Type_](#Type)
-  * [_AnimationConnectType_](#AnimationConnectType)
-  * [_UserConnectType_](#UserConnectType)
-  * [_UserAttitudeToAnimation_](#UserAttitudeToAnimation)
+  * [_Animation_Type_](#Animation_Type)
+  * [_User_Type_](#User_Type)
+  * [_Attitude_](#Attitude)
   * [_Comments_](#Comments)
  
 ### <span id="User">_user_</span>
@@ -47,7 +47,7 @@
 | createTime | 创建时间 | timestamp |
 | updateTime | 更新时间 | timestamp |
 
-### <span id="AnimationConnectType">_AnimationConnectType_</span>
+### <span id="Animation_Type">_Animation_Type_</span>
 
 | 字段名 | 字段意义 | 类型 |
 |:----:|:----:|:----:|
@@ -56,7 +56,7 @@
 | createTime | 创建时间 | timestamp |
 | updateTime | 更新时间 | timestamp |
 
-### <span id="UserConnectType">_UserConnectType_</span>
+### <span id="User_Type">_User_Type_</span>
 
 | 字段名 | 字段意义 | 类型 |
 |:----:|:----:|:----:|
@@ -65,7 +65,7 @@
 | createTime | 创建时间 | timestamp |
 | updateTime | 更新时间 | timestamp |
 
-### <span id="UserAttitudeToAnimation">_UserAttitudeToAnimation_</span>
+### <span id="Attitude">_Attitude_</span>
 
 | 字段名 | 字段意义 | 类型 |
 |:----:|:----:|:----:|
