@@ -1,5 +1,5 @@
 ## _Animation Recommend Database Design_
-### _version 4.0_
+### _version 5.0_
 
 ### _Table Name_
   * [_User_](#User)
@@ -8,7 +8,7 @@
   * [_AnimationConnectType_](#AnimationConnectType)
   * [_UserConnectType_](#UserConnectType)
   * [_UserAttitudeToAnimation_](#UserAttitudeToAnimation)
-  * [_UserCommentAnimation_](#UserCommentAnimation)
+  * [_Comments_](#Comments)
  
 ### <span id="User">_user_</span>
 
@@ -34,7 +34,7 @@
 | pageView| 浏览量 | Integer |
 | likeNum | 点赞数 | Integer |
 | unlikeNum | 点踩数 | Integer |
-| referrer | 推荐人 | String |
+| referrerID | 推荐人 | Integer |
 | createTime | 创建时间 | timestamp | 方便数据库维护 |
 | updateTime | 更新时间 | timestamp | 方便数据库维护 |
 
@@ -42,8 +42,8 @@
 
 | 字段名 | 字段意义 | 类型 |
 |:----:|:----:|:----:|
-|id | 伪主键 | Integer |
-|name | 番剧类型 | String |
+| id | 伪主键 | Integer |
+| name | 番剧类型 | String |
 | createTime | 创建时间 | timestamp |
 | updateTime | 更新时间 | timestamp |
 
@@ -75,7 +75,7 @@
 | createTime | 创建时间 | timestamp |
 | updateTime | 更新时间 | timestamp |
 
-### <span id="UserCommentAnimation">_UserCommentAnimation_</span>
+### <span id="Comments">_Comments_</span>
 
 | 字段名 | 字段意义 | 类型 |
 |:----:|:----:|:----:|

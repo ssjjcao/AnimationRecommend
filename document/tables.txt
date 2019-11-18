@@ -1,0 +1,76 @@
+CREATE TABLE IF NOT EXISTS User(
+id INT NOT NULL auto_increment primary key,
+name VARCHAR(20) NOT NULL,
+password VARCHAR(40) NOT NULL,
+signature varchar(255),
+createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+UNIQUE(name)
+) character set utf8;
+
+CREATE TABLE IF NOT EXISTS Animation(
+id INT NOT NULL auto_increment primary key,
+name VARCHAR(50) NOT NULL,
+recommendation TEXT NOT NULL,
+cover VARCHAR(255) NOT NULL,
+detail TEXT NOT NULL,
+link VARCHAR(255),
+pageView INT NOT NULL DEFAULT 0,
+likeNum INT NOT NULL DEFAULT 0,
+unlikeNum INT NOT NULL DEFAULT 0,
+referrerId INT NOT NULL,
+createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+UNIQUE(name),
+foreign key(referrerId) references User(id)
+) character set utf8;
+
+CREATE TABLE IF NOT EXISTS Type(
+id INT NOT NULL auto_increment primary key,
+name VARCHAR(20) NOT NULL,
+createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+UNIQUE(name)
+) character set utf8;
+
+CREATE TABLE IF NOT EXISTS AnimationConnectType(
+animationID INT NOT NULL,
+typeID INT NOT NULL,
+createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+foreign key(animationID) references Animation(id),
+foreign key(typeID) references Type(id),
+primary key(animationID,typeID)
+) character set utf8;
+
+CREATE TABLE IF NOT EXISTS UserConnectType(
+userID INT NOT NULL,
+typeID INT NOT NULL,
+createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+foreign key(userID) references User(id),
+foreign key(typeID) references Type(id),
+primary key(userID,typeID)
+) character set utf8;
+
+CREATE TABLE IF NOT EXISTS UserAttitudeToAnimation(
+userID INT NOT NULL,
+animationID INT NOT NULL,
+favorite BOOLEAN,
+createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+foreign key(userID) references User(id),
+foreign key(animationID) references Animation(id),
+primary key(userID,animationID)
+) character set utf8;
+
+CREATE TABLE IF NOT EXISTS UserCommentAnimation(
+userID INT NOT NULL,
+animationID INT NOT NULL,
+comment VARCHAR(255) NOT NULL,
+createTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updateTime timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+foreign key(userID) references User(id),
+foreign key(animationID) references Animation(id),
+primary key(userID,animationID,comment)
+) character set utf8;
