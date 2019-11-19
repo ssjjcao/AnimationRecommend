@@ -1,6 +1,9 @@
 package animation_recommend_backend.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -12,15 +15,16 @@ public class Comment {
     private int id;
     @Column(name = "comment")
     private String comment;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "updateTime")
     private Timestamp updateTime;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, optional = false)
-    @JoinColumn(name = "userID")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, optional = false)
-    @JoinColumn(name = "animationID")
+    @JoinColumn(name = "animation_id")
     private Animation animation;
 
     public String getComment() {

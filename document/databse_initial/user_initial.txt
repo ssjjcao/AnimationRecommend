@@ -1,0 +1,6 @@
+insert into user( name, password, signature) VALUES ('joker','123456','lxm');
+insert into user( name, password, signature) VALUES ('dream','123456','cjj');
+insert into user( name, password, signature) VALUES ('nerd','123456','whh');
+insert into user( name, password, signature) VALUES ('bear','123456','xlh');
+insert into user( name, password, signature) VALUES ('killMyTIme','123456','lwj');
+insert into user( name, password, signature) VALUES ('如迢','123456','hxm');

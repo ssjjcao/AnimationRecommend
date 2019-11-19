@@ -1,5 +1,7 @@
 package animation_recommend_backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,20 +22,20 @@ public class Animation {
     private String detail;
     @Column(name = "link")
     private String link;
-    @Column(name = "pageView")
-    private int pageView;
-    @Column(name = "likeNum")
-    private int likeNum;
-    @Column(name = "unlikeNum")
-    private int unlikeNum;
+    @Column(name = "page_view")
+    private int page_view;
+    @Column(name = "like_num")
+    private int like_num;
+    @Column(name = "unlike_num")
+    private int unlike_num;
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
-    @JoinTable(name = "animation_type", joinColumns = @JoinColumn(name = "animationID")
-            , inverseJoinColumns = @JoinColumn(name = "typeID"))
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @JoinTable(name = "animation_type", joinColumns = @JoinColumn(name = "animation_id")
+            , inverseJoinColumns = @JoinColumn(name = "type_id"))
     private Set<Type> types = new HashSet<>();
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, optional = false)
-    @JoinColumn(name = "referrerID")
+    @JoinColumn(name = "referrer_id")
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "animation")
@@ -82,28 +84,28 @@ public class Animation {
         this.link = link;
     }
 
-    public int getPageView() {
-        return pageView;
+    public int getPage_view() {
+        return page_view;
     }
 
-    public void setPageView(int pageView) {
-        this.pageView = pageView;
+    public void setPage_view(int page_view) {
+        this.page_view = page_view;
     }
 
-    public int getLikeNum() {
-        return likeNum;
+    public int getLike_num() {
+        return like_num;
     }
 
-    public void setLikeNum(int likeNum) {
-        this.likeNum = likeNum;
+    public void setLike_num(int like_num) {
+        this.like_num = like_num;
     }
 
-    public int getUnlikeNum() {
-        return unlikeNum;
+    public int getUnlike_num() {
+        return unlike_num;
     }
 
-    public void setUnlikeNum(int unlikeNum) {
-        this.unlikeNum = unlikeNum;
+    public void setUnlike_num(int unlike_num) {
+        this.unlike_num = unlike_num;
     }
 
     public String getName() {

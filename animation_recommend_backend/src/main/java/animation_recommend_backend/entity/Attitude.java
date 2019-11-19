@@ -1,5 +1,8 @@
 package animation_recommend_backend.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,11 +15,11 @@ public class Attitude {
     private boolean favorite;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, optional = false)
-    @JoinColumn(name = "animationID")
+    @JoinColumn(name = "animation_id")
     private Animation animation;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, optional = false)
-    @JoinColumn(name = "userID")
+    @JoinColumn(name = "user_id")
     private User user;
 
 

@@ -23,6 +23,15 @@ public class UserController {
     public ResponseEntity<Object> getUser(HttpServletRequest request) {
         String userName = request.getParameter("userName");
         User user = this.userService.getUserByName(userName);
+        //应该要自己组json，如果利用ResponseEntity自动转化的话会出现josn无限循环的问题。
         return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "deleteUserById")
+    @ResponseBody
+    public ResponseEntity<Object> deleteUser(HttpServletRequest request) {
+        Integer id = Integer.valueOf(request.getParameter("id"));
+        this.userService.deleteUserById(id);
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }

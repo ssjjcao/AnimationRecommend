@@ -4,5 +4,7 @@ import animation_recommend_backend.entity.User;
 
 public interface UserService {
 
-    public User getUserByName(String name);
+    User getUserByName(String name);
+
+    void deleteUserById(Integer id);
 }

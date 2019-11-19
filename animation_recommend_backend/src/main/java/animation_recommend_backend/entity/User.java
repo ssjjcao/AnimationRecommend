@@ -1,6 +1,7 @@
 package animation_recommend_backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -20,9 +21,9 @@ public class User {
     @Column(name = "signature")
     private String signature;
 
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_type", inverseJoinColumns = @JoinColumn(name = "typeID")
-            , joinColumns = @JoinColumn(name = "userID"))
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @JoinTable(name = "user_type", inverseJoinColumns = @JoinColumn(name = "type_id")
+            , joinColumns = @JoinColumn(name = "user_id"))
     private Set<Type> types = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
