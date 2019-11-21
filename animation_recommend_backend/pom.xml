@@ -46,28 +46,29 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>6.0.5</version>
         </dependency>
-<!--        用盐加密数据库敏感信息，DES实现-->
+        <!--        用盐加密数据库敏感信息，DES实现-->
         <dependency>
             <groupId>com.github.ulisesbocchio</groupId>
             <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>2.1.1</version>
         </dependency>
-<!--        实现spring boot热部署，提高使用体验-->
+        <!--        实现spring boot热部署，提升使用体验-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
-<!--        fastjson库，比原生的要快一些，比gson好玩的东西更多一点，我记得是这样-->
+        <!--        fastjson库，比原生的要快一些，比gson好玩的东西更多一点，我记得是这样-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
-<!--        lombok使代码简洁，在需要新建实体的时候可以直接@Data等注解搞一下舒服-->
+        <!--        lombok使代码简洁，在需要新建实体的时候可以直接@Data等注解搞一下舒服-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-<!--        方便的生成后端服务器文档-->
+        <!--        方便的生成后端服务器文档-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
