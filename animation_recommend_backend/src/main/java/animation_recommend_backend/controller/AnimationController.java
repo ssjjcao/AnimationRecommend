@@ -13,7 +13,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Controller
-@Api
 @RequestMapping(path = "/")
 public class AnimationController {
     @Autowired
@@ -21,16 +20,15 @@ public class AnimationController {
 
     @GetMapping(path = "searchByName")
     public @ResponseBody
-    List<Animation> searchByName(@RequestParam String name){
+    List<Animation> searchByName(@RequestParam String name) {
         return new ArrayList<>();
     }
 
     @GetMapping(path = "getAnimationByName")
     public @ResponseBody
-    Animation getAnimationByName(@RequestParam String animationName){
+    Animation getAnimationByName(@RequestParam String animationName) {
         return new Animation();
     }
-
 
 
 }

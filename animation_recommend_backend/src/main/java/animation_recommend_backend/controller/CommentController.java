@@ -34,7 +34,7 @@ public class CommentController {
         return false;
     }
 
-    @GetMapping(path = "getMyComments")
+    @GetMapping(path = "getAllComments")
     public @ResponseBody
     List<Comment> getAllComments(@RequestParam String animationName) {
         return new ArrayList<>();
