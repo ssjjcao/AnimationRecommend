@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping(path = "/")
 public class TypeController {
@@ -13,8 +15,7 @@ public class TypeController {
     private TypeService typeService;
     @GetMapping(path = "/getAnimationByType")
     public @ResponseBody
-    Animation getAnimationByType(@RequestParam String typeName){
-        return new Animation();
+    List<Animation> getAnimationByType(@RequestParam String typeName){
+        return typeService.getAnimationByType(typeName);
     }
-
 }

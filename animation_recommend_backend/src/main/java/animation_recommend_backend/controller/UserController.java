@@ -70,7 +70,7 @@ public class UserController {
     @PostMapping(path = "modifyPassword")
     public @ResponseBody
     ResponseBox modifyPassword(@RequestParam String oldPassword,@RequestParam String newPassword){
-        return new ResponseBox();
+        return null;
     }
 
     @PostMapping(path = "removeLike")

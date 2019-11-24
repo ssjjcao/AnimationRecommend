@@ -19,7 +19,7 @@ public class CommentController {
     @PostMapping(path = "comment")
     public @ResponseBody
     ResponseBox comment(@RequestParam String comment, @RequestParam String animationName, @RequestParam String username) {
-        return new ResponseBox();
+        return null;
     }
 
     @GetMapping(path = "getMyComments")

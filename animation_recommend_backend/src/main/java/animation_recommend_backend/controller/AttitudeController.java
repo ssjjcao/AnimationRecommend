@@ -18,24 +18,24 @@ public class AttitudeController {
     @PostMapping(path = "likeIt")
     public @ResponseBody
     ResponseBox likeIt(@RequestParam String username, @RequestParam String animationName) {
-        return new ResponseBox();
+        return attitudeService.likeIt(username,animationName);
     }
 
     @PostMapping(path = "dislikeIt")
     public @ResponseBody
     ResponseBox dislikeIt(@RequestParam String username, @RequestParam String animationName) {
-        return new ResponseBox();
+        return attitudeService.dislikeIt(username, animationName);
     }
 
     @PostMapping(path = "stopLiking")
     public @ResponseBody
     ResponseBox stopLiking(@RequestParam String username, @RequestParam String animationName) {
-        return new ResponseBox();
+        return attitudeService.stopLiking(username, animationName);
     }
 
     @PostMapping(path = "stopDisliking")
     public @ResponseBody
     ResponseBox stopDisliking(@RequestParam String username, @RequestParam String animationName) {
-        return new ResponseBox();
+        return attitudeService.stopDisliking(username, animationName);
     }
 }

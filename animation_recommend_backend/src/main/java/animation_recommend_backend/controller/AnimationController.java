@@ -21,13 +21,17 @@ public class AnimationController {
     @GetMapping(path = "searchByName")
     public @ResponseBody
     List<Animation> searchByName(@RequestParam String name) {
-        return new ArrayList<>();
+        List<Animation> animations=animationService.searchByName(name);
+        System.out.println("hellosearch");
+        return animations;
     }
 
     @GetMapping(path = "getAnimationByName")
     public @ResponseBody
     Animation getAnimationByName(@RequestParam String animationName) {
-        return new Animation();
+        Animation animation=animationService.getAnimationByName(animationName);
+        System.out.println("helloget");
+        return animation;
     }
 
 
