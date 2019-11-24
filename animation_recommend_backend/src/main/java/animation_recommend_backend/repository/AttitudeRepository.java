@@ -6,5 +6,5 @@ import animation_recommend_backend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AttitudeRepository extends JpaRepository<Attitude, Integer> {
-    Boolean existsAttitudeByAnimation_NameAfterAndUser_NameAfter(String username,String animationName);
+    Attitude getAttitudeByUser_NameAndAnimation_Name(String username,String animationName);
 }

@@ -6,6 +6,7 @@ import animation_recommend_backend.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,7 +16,6 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public List<Animation> getAnimationByType(String typeName) {
-
-        return (List<Animation>) typeRepository.getTypeByName(typeName).getAnimations();
+        return new ArrayList<>(typeRepository.getTypeByName(typeName).getAnimations());
     }
 }

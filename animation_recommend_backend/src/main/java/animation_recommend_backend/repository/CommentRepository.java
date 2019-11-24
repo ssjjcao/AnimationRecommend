@@ -3,5 +3,14 @@ package animation_recommend_backend.repository;
 import animation_recommend_backend.entity.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
+    Boolean existsCommentByCommentAndAnimation_NameAndUser_Name(String comment, String animationName, String username);
+
+    List<Comment> getCommentsByUser_NameAndAnimation_Name(String username, String animationName);
+
+    void deleteCommentByUser_NameAndAnimation_Name(String username, String animationName);
+
+    List<Comment> getCommentsByAnimation_Name(String animation_Name);
 }

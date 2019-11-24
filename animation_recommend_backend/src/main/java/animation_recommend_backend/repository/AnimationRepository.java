@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface AnimationRepository extends JpaRepository<Animation, Integer> {
-    List<Animation> getAnimationsByNameContains(String name);
+    List<Animation> getAnimationsByNameContaining(String name);
 
     Animation getAnimationByName(String name);
 }

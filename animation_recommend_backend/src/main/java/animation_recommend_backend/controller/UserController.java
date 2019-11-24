@@ -39,14 +39,14 @@ public class UserController {
 
     @PostMapping(path = "signIn")
     public @ResponseBody
-    User signIn(@Valid User user) {
-        return new User();
+    ResponseBox signIn(@Valid User user) {
+        return null;
     }
 
     @PostMapping(path = "signUp")
     public @ResponseBody
-    User signOn(@Valid User user) {
-        return new User();
+    ResponseBox signOn(@Valid User user) {
+        return null;
     }
 
     @PostMapping(path = "update")

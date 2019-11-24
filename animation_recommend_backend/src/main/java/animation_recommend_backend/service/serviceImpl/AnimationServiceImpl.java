@@ -16,7 +16,7 @@ public class AnimationServiceImpl implements AnimationService {
 
     @Override
     public List<Animation> searchByName(String name) {
-        return animationRepository.getAnimationsByNameContains(name);
+        return animationRepository.getAnimationsByNameContaining(name);
     }
 
     @Override
