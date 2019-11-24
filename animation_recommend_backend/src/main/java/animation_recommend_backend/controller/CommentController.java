@@ -19,24 +19,24 @@ public class CommentController {
     @PostMapping(path = "comment")
     public @ResponseBody
     ResponseBox comment(@RequestParam String comment, @RequestParam String animationName, @RequestParam String username) {
-        return null;
+        return commentService.comment(comment, animationName, username);
     }
 
     @GetMapping(path = "getMyComments")
     public @ResponseBody
     List<Comment> getMyComments(@RequestParam String username, @RequestParam String animationName) {
-        return new ArrayList<>();
+        return commentService.getMyComments(username, animationName);
     }
 
     @PostMapping(path = "deleteOneComment")
     public @ResponseBody
-    Boolean deleteOneComment( @RequestParam String username,@RequestParam String animationName){
-        return false;
+    ResponseBox deleteOneComment( @RequestParam String username,@RequestParam String animationName){
+        return commentService.deleteOneComment(username, animationName);
     }
 
     @GetMapping(path = "getAllComments")
     public @ResponseBody
     List<Comment> getAllComments(@RequestParam String animationName) {
-        return new ArrayList<>();
+        return commentService.getAllComments(animationName);
     }
 }

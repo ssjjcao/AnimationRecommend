@@ -52,36 +52,36 @@ public class UserController {
     @PostMapping(path = "update")
     public @ResponseBody
     Animation update(@RequestParam MultipartFile image, @RequestParam String animationName, @RequestParam String recommend, @RequestParam String[] animationTypes, @RequestParam String link, @RequestParam String animationInfo) {
-        return new Animation();
+        return userService.update(image, animationName, recommend, animationTypes, link, animationInfo);
     }
 
     @GetMapping(path = "getUserInfo")
     public @ResponseBody
     User getUserInfo(@RequestParam String username) {
-        return new User();
+        return userService.getUserInfo(username);
     }
 
     @PostMapping(path = "modifyUserInfo")
     public @ResponseBody
-    Boolean modifyUserInfo(@RequestParam String username, @RequestParam String signature, @RequestParam String[] myTypes) {
-        return false;
+    ResponseBox modifyUserInfo(@RequestParam String username, @RequestParam String signature, @RequestParam String[] myTypes) {
+        return userService.modifyUserInfo(username, signature, myTypes);
     }
 
     @PostMapping(path = "modifyPassword")
     public @ResponseBody
     ResponseBox modifyPassword(@RequestParam String oldPassword,@RequestParam String newPassword){
-        return null;
+        return userService.modifyPassword(oldPassword, newPassword);
     }
 
     @PostMapping(path = "removeLike")
     public @ResponseBody
-    Boolean removeLike(@RequestParam String animationName,@RequestParam String username){
-        return false;
+    ResponseBox removeLike(@RequestParam String animationName,@RequestParam String username){
+        return userService.removeLike(animationName, username);
     }
 
     @PostMapping(path = "deleteRecommend")
     public @ResponseBody
-    Boolean deleteRecommend(@RequestParam String animationName,@RequestParam String username){
-        return false;
+    ResponseBox deleteRecommend(@RequestParam String animationName,@RequestParam String username){
+        return userService.deleteRecommend(animationName, username);
     }
 }

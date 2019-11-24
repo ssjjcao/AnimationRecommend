@@ -1,5 +1,6 @@
 package animation_recommend_backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -28,19 +29,19 @@ public class Animation {
     private int like_num;
     @Column(name = "unlike_num")
     private int unlike_num;
-
+    @JsonIgnore
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinTable(name = "animation_type", joinColumns = @JoinColumn(name = "animation_id")
             , inverseJoinColumns = @JoinColumn(name = "type_id"))
     private Set<Type> types = new HashSet<>();
-
+    @JsonIgnore
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, optional = false)
     @JoinColumn(name = "referrer_id")
     private User user;
-
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "animation")
     private Set<Comment> comments = new HashSet<>();
-
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "animation")
     private Set<Attitude> attitudes = new HashSet<>();
 

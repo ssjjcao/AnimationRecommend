@@ -1,6 +1,7 @@
 package animation_recommend_backend.service.serviceImpl;
 
 import animation_recommend_backend.entity.Animation;
+import animation_recommend_backend.entity.ResponseBox;
 import animation_recommend_backend.entity.User;
 import animation_recommend_backend.repository.UserRepository;
 import animation_recommend_backend.service.UserService;
@@ -46,22 +47,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean modifyUserInfo(String username, String signature, String[] myTypes) {
+    public ResponseBox modifyUserInfo(String username, String signature, String[] myTypes) {
         return null;
     }
 
     @Override
-    public Boolean modifyPassword(String oldPassword, String newPassword) {
+    public ResponseBox modifyPassword(String oldPassword, String newPassword) {
         return null;
     }
 
     @Override
-    public Boolean removeLike(String animationName, String username) {
+    public ResponseBox removeLike(String animationName, String username) {
         return null;
     }
 
     @Override
-    public Boolean deleteRecommend(String animationName, String username) {
+    public ResponseBox deleteRecommend(String animationName, String username) {
         return null;
     }
 

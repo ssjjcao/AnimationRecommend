@@ -20,18 +20,18 @@ public class User {
     private String password;
     @Column(name = "signature")
     private String signature;
-
+    @JsonIgnore
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinTable(name = "user_type", inverseJoinColumns = @JoinColumn(name = "type_id")
             , joinColumns = @JoinColumn(name = "user_id"))
     private Set<Type> types = new HashSet<>();
-
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Animation> animations = new HashSet<>();
-
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Comment> comments = new HashSet<>();
-
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Attitude> attitudes = new HashSet<>();
 

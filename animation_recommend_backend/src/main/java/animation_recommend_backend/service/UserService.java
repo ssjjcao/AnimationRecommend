@@ -1,6 +1,7 @@
 package animation_recommend_backend.service;
 
 import animation_recommend_backend.entity.Animation;
+import animation_recommend_backend.entity.ResponseBox;
 import animation_recommend_backend.entity.User;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,11 +19,11 @@ public interface UserService {
 
     User getUserInfo(String username);
 
-    Boolean modifyUserInfo(String username,String signature,String[] myTypes);
+    ResponseBox modifyUserInfo(String username,String signature,String[] myTypes);
 
-    Boolean modifyPassword(String oldPassword,String newPassword);
+    ResponseBox modifyPassword(String oldPassword, String newPassword);
 
-    Boolean removeLike(String animationName,String username);
+    ResponseBox removeLike(String animationName,String username);
 
-    Boolean deleteRecommend(String animationName,String username);
+    ResponseBox deleteRecommend(String animationName,String username);
     }

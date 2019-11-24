@@ -1,6 +1,7 @@
 package animation_recommend_backend.service.serviceImpl;
 
 import animation_recommend_backend.entity.Comment;
+import animation_recommend_backend.entity.ResponseBox;
 import animation_recommend_backend.repository.CommentRepository;
 import animation_recommend_backend.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class CommentServiceImpl implements CommentService {
     private CommentRepository commentRepository;
 
     @Override
-    public Boolean comment(String comment, String animationName, String username) {
+    public ResponseBox comment(String comment, String animationName, String username) {
         return null;
     }
 
@@ -24,7 +25,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Boolean deleteOneComment(String username, String animationName) {
+    public ResponseBox deleteOneComment(String username, String animationName) {
         return null;
     }
 
