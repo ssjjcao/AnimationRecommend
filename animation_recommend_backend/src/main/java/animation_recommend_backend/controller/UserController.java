@@ -2,6 +2,7 @@ package animation_recommend_backend.controller;
 
 import animation_recommend_backend.entity.Animation;
 import animation_recommend_backend.entity.ResponseBox;
+import animation_recommend_backend.entity.ResponseDataBox;
 import animation_recommend_backend.entity.User;
 import animation_recommend_backend.service.UserService;
 import lombok.Data;
@@ -21,21 +22,21 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "getUserByName", method = RequestMethod.GET)
-    @ResponseBody
-    public ResponseEntity<Object> getUser(HttpServletRequest request) {
-        String userName = request.getParameter("userName");
-        User user = this.userService.getUserByName(userName);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }
+//    @RequestMapping(value = "getUserByName", method = RequestMethod.GET)
+//    @ResponseBody
+//    public ResponseEntity<Object> getUser(HttpServletRequest request) {
+//        String userName = request.getParameter("userName");
+//        User user = this.userService.getUserByName(userName);
+//        return new ResponseEntity<>(user, HttpStatus.OK);
+//    }
 
-    @RequestMapping(value = "deleteUserById")
-    @ResponseBody
-    public ResponseEntity<Object> deleteUser(HttpServletRequest request) {
-        Integer id = Integer.valueOf(request.getParameter("id"));
-        this.userService.deleteUserById(id);
-        return new ResponseEntity<>(null, HttpStatus.OK);
-    }
+//    @RequestMapping(value = "deleteUserById")
+//    @ResponseBody
+//    public ResponseEntity<Object> deleteUser(HttpServletRequest request) {
+//        Integer id = Integer.valueOf(request.getParameter("id"));
+//        this.userService.deleteUserById(id);
+//        return new ResponseEntity<>(null, HttpStatus.OK);
+//    }
 
     @PostMapping(path = "signIn")
     public @ResponseBody
@@ -51,13 +52,13 @@ public class UserController {
 
     @PostMapping(path = "update")
     public @ResponseBody
-    Animation update(@RequestParam MultipartFile image, @RequestParam String animationName, @RequestParam String recommend, @RequestParam String[] animationTypes, @RequestParam String link, @RequestParam String animationInfo) {
+    ResponseBox update(@RequestParam MultipartFile image, @RequestParam String animationName, @RequestParam String recommend, @RequestParam String[] animationTypes, @RequestParam String link, @RequestParam String animationInfo) {
         return userService.update(image, animationName, recommend, animationTypes, link, animationInfo);
     }
 
     @GetMapping(path = "getUserInfo")
     public @ResponseBody
-    User getUserInfo(@RequestParam String username) {
+    ResponseDataBox getUserInfo(@RequestParam String username) {
         return userService.getUserInfo(username);
     }
 

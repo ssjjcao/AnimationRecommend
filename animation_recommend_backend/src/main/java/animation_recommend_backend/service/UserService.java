@@ -2,6 +2,7 @@ package animation_recommend_backend.service;
 
 import animation_recommend_backend.entity.Animation;
 import animation_recommend_backend.entity.ResponseBox;
+import animation_recommend_backend.entity.ResponseDataBox;
 import animation_recommend_backend.entity.User;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,13 +12,13 @@ public interface UserService {
 
     void deleteUserById(Integer id);
 
-    User signIn(User user);
+    ResponseBox signIn(User user);
 
-    User signUp(User user);
+    ResponseBox signUp(User user);
 
-    Animation update(MultipartFile image,String animationName,String recommend, String[] animationTypes,String link,String animationInfo);
+    ResponseBox update(MultipartFile image,String animationName,String recommend, String[] animationTypes,String link,String animationInfo);
 
-    User getUserInfo(String username);
+    ResponseDataBox getUserInfo(String username);
 
     ResponseBox modifyUserInfo(String username,String signature,String[] myTypes);
 

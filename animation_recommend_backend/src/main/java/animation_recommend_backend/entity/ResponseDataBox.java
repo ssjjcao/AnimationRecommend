@@ -1,11 +1,10 @@
 package animation_recommend_backend.entity;
+
 import lombok.Value;
 
-/**
- * 执行状态和返回信息的自定义包装体，
- */
 @Value
-public class ResponseBox {
+public class ResponseDataBox {
     boolean result;
     String message;
+    Object data;
 }

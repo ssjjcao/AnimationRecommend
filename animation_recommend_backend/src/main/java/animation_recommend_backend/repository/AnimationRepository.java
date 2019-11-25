@@ -11,4 +11,6 @@ public interface AnimationRepository extends JpaRepository<Animation, Integer> {
     List<Animation> getAnimationsByNameContaining(String name);
 
     Animation getAnimationByName(String name);
+
+    boolean existsAnimationByName(String name);
 }
