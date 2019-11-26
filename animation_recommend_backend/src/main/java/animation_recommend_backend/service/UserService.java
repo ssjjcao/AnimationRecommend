@@ -16,13 +16,13 @@ public interface UserService {
 
     ResponseBox signUp(User user);
 
-    ResponseBox update(MultipartFile image,String animationName,String recommend, String[] animationTypes,String link,String animationInfo);
+    ResponseBox update(MultipartFile image,String animationName,String recommend, String[] animationTypes,String link,String animationInfo,String username);
 
     ResponseDataBox getUserInfo(String username);
 
     ResponseBox modifyUserInfo(String username,String signature,String[] myTypes);
 
-    ResponseBox modifyPassword(String oldPassword, String newPassword);
+    ResponseBox modifyPassword(String oldPassword, String newPassword,String username);
 
     ResponseBox removeLike(String animationName,String username);
 

@@ -4,38 +4,50 @@ import animation_recommend_backend.entity.ResponseBox;
 import animation_recommend_backend.service.AttitudeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import utils.CookieCache;
+
+import javax.servlet.http.Cookie;
 
 @Controller
 @RequestMapping(path = "/")
 public class AttitudeController {
     @Autowired
     private AttitudeService attitudeService;
-
+//Message is username
     @PostMapping(path = "likeIt")
     public @ResponseBody
-    ResponseBox likeIt(@RequestParam String username, @RequestParam String animationName) {
-        return attitudeService.likeIt(username,animationName);
+    ResponseBox likeIt(@CookieValue(value = "user",defaultValue = "") Cookie cookie, @RequestParam String animationName) {
+        ResponseBox responseBox= CookieCache.getUserName(cookie);
+        if (responseBox.isResult())
+            return attitudeService.likeIt(responseBox.getMessage(),animationName);
+        else return responseBox;
     }
 
     @PostMapping(path = "dislikeIt")
     public @ResponseBody
-    ResponseBox dislikeIt(@RequestParam String username, @RequestParam String animationName) {
-        return attitudeService.dislikeIt(username, animationName);
+    ResponseBox dislikeIt(@CookieValue(value = "user",defaultValue = "") Cookie cookie, @RequestParam String animationName) {
+        ResponseBox responseBox= CookieCache.getUserName(cookie);
+        if (responseBox.isResult())
+            return attitudeService.dislikeIt(responseBox.getMessage(),animationName);
+        else return responseBox;
     }
 
     @PostMapping(path = "stopLiking")
     public @ResponseBody
-    ResponseBox stopLiking(@RequestParam String username, @RequestParam String animationName) {
-        return attitudeService.stopLiking(username, animationName);
+    ResponseBox stopLiking(@CookieValue(value = "user",defaultValue = "") Cookie cookie, @RequestParam String animationName) {
+        ResponseBox responseBox= CookieCache.getUserName(cookie);
+        if (responseBox.isResult())
+            return attitudeService.stopLiking(responseBox.getMessage(),animationName);
+        else return responseBox;
     }
 
     @PostMapping(path = "stopDisliking")
     public @ResponseBody
-    ResponseBox stopDisliking(@RequestParam String username, @RequestParam String animationName) {
-        return attitudeService.stopDisliking(username, animationName);
+    ResponseBox stopDisliking(@CookieValue(value = "user",defaultValue = "") Cookie cookie, @RequestParam String animationName) {
+        ResponseBox responseBox= CookieCache.getUserName(cookie);
+        if (responseBox.isResult())
+            return attitudeService.likeIt(responseBox.getMessage(),animationName);
+        else return responseBox;
     }
 }

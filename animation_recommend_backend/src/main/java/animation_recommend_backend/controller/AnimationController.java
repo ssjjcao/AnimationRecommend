@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +21,8 @@ public class AnimationController {
 
     @GetMapping(path = "searchByName")
     public @ResponseBody
-    List<Animation> searchByName(@RequestParam String name) {
+    List<Animation> searchByName(@CookieValue(value = "user", defaultValue = "") Cookie cookie, @RequestParam String name) {
+        System.out.println(cookie.getName()+cookie.getValue());
         return animationService.searchByName(name);
     }
 
