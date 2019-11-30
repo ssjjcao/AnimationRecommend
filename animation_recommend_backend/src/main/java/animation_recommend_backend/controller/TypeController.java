@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping(path = "/")
+@RequestMapping(path = "/type")
 public class TypeController {
     @Autowired
     private TypeService typeService;

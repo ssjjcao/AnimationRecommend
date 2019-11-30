@@ -14,15 +14,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Controller
-@RequestMapping(path = "/")
+@RequestMapping(path = "/animation/")
 public class AnimationController {
     @Autowired
     private AnimationService animationService;
 
     @GetMapping(path = "searchByName")
     public @ResponseBody
-    List<Animation> searchByName(@CookieValue(value = "user", defaultValue = "") Cookie cookie, @RequestParam String name) {
-        System.out.println(cookie.getName()+cookie.getValue());
+    List<Animation> searchByName(@RequestParam String name) {
         return animationService.searchByName(name);
     }
 

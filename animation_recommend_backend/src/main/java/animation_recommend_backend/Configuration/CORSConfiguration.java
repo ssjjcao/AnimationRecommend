@@ -16,7 +16,7 @@ public class CORSConfiguration {
                 registry.addMapping("/**")
                         .allowedHeaders("*")
                         .allowedMethods("*")
-                        .allowedOrigins("*");
+                        .allowedOrigins("*").allowCredentials(true);
             }
         };
     }

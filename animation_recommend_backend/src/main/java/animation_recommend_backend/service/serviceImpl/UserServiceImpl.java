@@ -27,6 +27,15 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private AttitudeRepository attitudeRepository;
 
+    private static HashSet<Type> Strings2TypeSet(TypeRepository typeRepository,String [] myTypes){
+        ArrayList<Type> types = new ArrayList<>();
+        for (String myType : myTypes) {
+            Type type = typeRepository.getTypeByName(myType);
+            if (type != null)
+                types.add(type);
+        }
+        return new HashSet<>(types);
+    }
     @Override
     public User getUserByName(String name) {
         return this.userRepository.getUserByName(name);
@@ -40,18 +49,23 @@ public class UserServiceImpl implements UserService {
 
     //ToDO 密码强度校验先搁置一下，之后确定了再加上去
     @Override
-    public ResponseBox signIn(User user) {
-        User user0 = userRepository.getUserByName(user.getName());
-        if (user0 != null)
-            if (user0.getPassword().equals(user.getPassword()))
+    public ResponseBox signIn(String username, String password) {
+        User user = userRepository.getUserByName(username);
+        if (user != null)
+            if (user.getPassword().equals(password))
                 return new ResponseBox(true, "登陆成功");
             else return new ResponseBox(false, "用户名或密码错误");
         else return new ResponseBox(false, "用户不存在");
     }
 
     @Override
-    public ResponseBox signUp(User user) {
-        if (!userRepository.existsUserByName(user.getName())) {
+    public ResponseBox signUp(String username, String password, String signature, String[] myTypes) {
+        if (!userRepository.existsUserByName(username)) {
+            User user=new User();
+            user.setName(username);
+            user.setPassword(password);
+            user.setSignature(signature);
+            user.setTypes(Strings2TypeSet(typeRepository,myTypes));
             userRepository.save(user);
             return new ResponseBox(true, "注册成功");
         }
@@ -76,13 +90,7 @@ public class UserServiceImpl implements UserService {
             animation.setCover(cover);
             animation.setName(animationName);
             animation.setRecommendation(recommend);
-            ArrayList<Type> types = new ArrayList<>();
-            for (String animationType : animationTypes) {
-                Type type = typeRepository.getTypeByName(animationType);
-                if (type != null)
-                    types.add(type);
-            }
-            animation.setTypes(new HashSet<>(types));
+            animation.setTypes(Strings2TypeSet(typeRepository,animationTypes));
             animation.setLink(link);
             animation.setDetail(animationInfo);
             User user = userRepository.getUserByName(username);
@@ -104,19 +112,12 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.getUserByName(username);
         if (user != null) {
             String message="修改成功";
-            ArrayList<Type> types = new ArrayList<>();
-            for (String myType : myTypes) {
-                Type type = typeRepository.getTypeByName(myType);
-                if (type != null)
-                    types.add(type);
-            }
             if (!user.getName().equals(username)) {
                 if (userRepository.existsUserByName(username))
                     return new ResponseBox(false,"该用户名已被使用");
                 user.setName(username);
-                message="生成新cookie";
             }
-            user.setTypes(new HashSet<>(types));
+            user.setTypes(Strings2TypeSet(typeRepository,myTypes));
             user.setSignature(signature);
             userRepository.save(user);
             return new ResponseBox(true,message);

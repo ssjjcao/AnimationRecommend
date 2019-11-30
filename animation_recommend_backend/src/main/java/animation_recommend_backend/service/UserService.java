@@ -12,9 +12,9 @@ public interface UserService {
 
     void deleteUserById(Integer id);
 
-    ResponseBox signIn(User user);
+    ResponseBox signIn(String username,String password);
 
-    ResponseBox signUp(User user);
+    ResponseBox signUp(String username,String password,String signature,String[] myTypes);
 
     ResponseBox update(MultipartFile image,String animationName,String recommend, String[] animationTypes,String link,String animationInfo,String username);
 

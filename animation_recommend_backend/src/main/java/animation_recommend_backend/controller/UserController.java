@@ -2,23 +2,16 @@ package animation_recommend_backend.controller;
 
 import animation_recommend_backend.entity.ResponseBox;
 import animation_recommend_backend.entity.ResponseDataBox;
-import animation_recommend_backend.entity.User;
 import animation_recommend_backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import utils.CookieCache;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
-import javax.validation.Valid;
-import java.time.Duration;
-import java.util.UUID;
 
 @Controller
-@RequestMapping(path = "/")
+@RequestMapping(path = "/user/")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -41,26 +34,22 @@ public class UserController {
 //@CookieValue(value = "user",defaultValue = "") Cookie cookie,
     @PostMapping(path = "signIn")
     public @ResponseBody
-    ResponseBox signIn(@Valid User user, HttpServletResponse response) {
-        ResponseBox responseBox = userService.signIn(user);
-        return CookieCache.generateCookie(user.getName(), response, responseBox);
+    ResponseBox signIn() {
+        return null;
     }
 
     @PostMapping(path = "signUp")
     public @ResponseBody
-    ResponseBox signUp(@Valid User user, HttpServletResponse response) {
-        ResponseBox responseBox = userService.signUp(user);
-        return CookieCache.generateCookie(user.getName(), response, responseBox);
+    ResponseBox signUp() {
+        return null;
     }
 
 
     @PostMapping(path = "update")
     public @ResponseBody
-    ResponseBox update(@CookieValue(value = "user", defaultValue = "") Cookie cookie, @RequestParam MultipartFile image, @RequestParam String animationName, @RequestParam String recommend, @RequestParam String[] animationTypes, @RequestParam String link, @RequestParam String animationInfo) {
-        ResponseBox responseBox = CookieCache.getUserName(cookie);
-        if (responseBox.isResult())
-            return userService.update(image, animationName, recommend, animationTypes, link, animationInfo, responseBox.getMessage());
-        else return responseBox;
+    ResponseBox update(@RequestParam String username, @RequestParam MultipartFile image, @RequestParam String animationName, @RequestParam String recommend, @RequestParam String[] animationTypes, @RequestParam String link, @RequestParam String animationInfo) {
+
+        return userService.update(image, animationName, recommend, animationTypes, link, animationInfo, username);
     }
 
     @GetMapping(path = "getUserInfo")
@@ -68,45 +57,29 @@ public class UserController {
     ResponseDataBox getUserInfo(@RequestParam String username) {
         return userService.getUserInfo(username);
     }
-//IMPORTANT 这个接口在修改了用户名的情况下会返回新的cookie
+
+    //IMPORTANT 这个接口在修改了用户名的情况下会返回新的cookie
     @PostMapping(path = "modifyUserInfo")
     public @ResponseBody
-    ResponseBox modifyUserInfo(@CookieValue(value = "user", defaultValue = "") Cookie cookie, @RequestParam String signature, @RequestParam String[] myTypes,HttpServletResponse response) {
-        ResponseBox responseBox = CookieCache.getUserName(cookie);
-        if (responseBox.isResult()) {
-            ResponseBox responseBox1 = userService.modifyUserInfo(responseBox.getMessage(), signature, myTypes);
-            if (responseBox1.getMessage().equals("生成新cookie")) {
-                CookieCache.generateCookie(responseBox.getMessage(), response, responseBox1);
-                return new ResponseBox(true,"修改成功");
-            }
-        }
-        return responseBox;
+    ResponseBox modifyUserInfo(@RequestParam String username, @RequestParam String signature, @RequestParam String[] myTypes, HttpServletResponse response) {
+        return userService.modifyUserInfo(username, signature, myTypes);
     }
 
     @PostMapping(path = "modifyPassword")
     public @ResponseBody
-    ResponseBox modifyPassword(@CookieValue(value = "user", defaultValue = "") Cookie cookie, @RequestParam String oldPassword, @RequestParam String newPassword) {
-        ResponseBox responseBox = CookieCache.getUserName(cookie);
-        if (responseBox.isResult())
-            return userService.modifyPassword(oldPassword, newPassword, responseBox.getMessage());
-        return responseBox;
+    ResponseBox modifyPassword(@RequestParam String username, @RequestParam String oldPassword, @RequestParam String newPassword) {
+        return userService.modifyPassword(oldPassword, newPassword, username);
     }
 
     @PostMapping(path = "removeLike")
     public @ResponseBody
-    ResponseBox removeLike(@CookieValue(value = "user", defaultValue = "") Cookie cookie, @RequestParam String animationName) {
-        ResponseBox responseBox = CookieCache.getUserName(cookie);
-        if (responseBox.isResult())
-            return userService.removeLike(animationName, responseBox.getMessage());
-        return responseBox;
+    ResponseBox removeLike(@RequestParam String username, @RequestParam String animationName) {
+        return userService.removeLike(animationName, username);
     }
 
     @PostMapping(path = "deleteRecommend")
     public @ResponseBody
-    ResponseBox deleteRecommend(@CookieValue(value = "user", defaultValue = "") Cookie cookie, @RequestParam String animationName) {
-        ResponseBox responseBox = CookieCache.getUserName(cookie);
-        if (responseBox.isResult())
-            return userService.deleteRecommend(animationName, responseBox.getMessage());
-        return responseBox;
+    ResponseBox deleteRecommend(@RequestParam String username, @RequestParam String animationName) {
+        return userService.deleteRecommend(animationName, username);
     }
 }

@@ -15,12 +15,12 @@ public class UserAccountTest {
 
     @Test
     public void testUserSignInFailure() {
-        User user = getUser("Dream", "123456");
-        ResponseBox responseBox = userService.signIn(user);
+//        User user = getUser("Dream", "123456");
+        ResponseBox responseBox = userService.signIn("Dream","123456");
         Assertions.assertFalse(responseBox.isResult());
 
-        user = getUser("dream", "niubility");
-        responseBox = userService.signIn(user);
+//        user = getUser("dream", "niubility");
+        responseBox = userService.signIn("dream","niubility");
         Assertions.assertFalse(responseBox.isResult());
 
         //todo :更多的测试用例
@@ -29,11 +29,11 @@ public class UserAccountTest {
     @Test
     public void testUserSignInSuccess() {
         User user = getUser("dream", "123456");
-        ResponseBox responseBox = userService.signIn(user);
+        ResponseBox responseBox = userService.signIn("dream", "123456");
         Assertions.assertTrue(responseBox.isResult());
 
         user = getUser("bear", "niubility");
-        responseBox = userService.signIn(user);
+        responseBox = userService.signIn("bear", "niubility");
         Assertions.assertTrue(responseBox.isResult());
     }
 
