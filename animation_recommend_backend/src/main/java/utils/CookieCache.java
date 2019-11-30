@@ -46,6 +46,7 @@ public class CookieCache {
             response.addCookie(cookie);
             userMap.put(cookie,username);
             cookieMap.put(username, cookie);
+            responseBox=new ResponseBox(true,cookie.getValue());
         }
         return responseBox;
     }
