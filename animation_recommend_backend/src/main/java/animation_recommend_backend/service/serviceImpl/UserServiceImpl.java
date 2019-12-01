@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
 
     private static HashSet<Type> Strings2TypeSet(TypeRepository typeRepository,String [] myTypes){
         ArrayList<Type> types = new ArrayList<>();
+        System.out.println(myTypes.length);
         for (String myType : myTypes) {
             Type type = typeRepository.getTypeByName(myType);
             if (type != null)
@@ -60,6 +61,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResponseBox signUp(String username, String password, String signature, String[] myTypes) {
+        if (username==null||username.equals("")) return new ResponseBox(false,"请输入合法用户名");
         if (!userRepository.existsUserByName(username)) {
             User user=new User();
             user.setName(username);

@@ -2,11 +2,12 @@ package animation_recommend_backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
-
+@Proxy(lazy = false)
 @Entity
 @Table(name = "user")
 public class User {

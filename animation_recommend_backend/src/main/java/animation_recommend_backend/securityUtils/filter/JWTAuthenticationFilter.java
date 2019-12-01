@@ -40,15 +40,13 @@ public class JWTAuthenticationFilter extends GenericFilterBean {
                     .getAuthentication(servletRequest);
             SecurityContextHolder.getContext()
                     .setAuthentication(authentication);
-            assert authentication != null;
-            String username=userRepository.getOne(Integer.valueOf(authentication.getName())).getName();
-            servletRequest.setAttribute("username",username);
-//            if (authentication.getName().equals(String.valueOf(userRepository.getUserByName(username).getId()))) {
-//                System.out.println("************************\n");
-//                System.out.println(username);
-//                System.out.println("************************\n");
-//                servletRequest.setAttribute("username", username);
-//            }
+            if (authentication!=null) {
+                String username=userRepository.getOne(Integer.valueOf(authentication.getName())).getName();
+                System.out.println("************************\n");
+                System.out.println(username);
+                System.out.println("************************\n");
+                servletRequest.setAttribute("username", username);
+            }
 //            else return;
             //ToDO 其他异常情况
             filterChain.doFilter(servletRequest, servletResponse);

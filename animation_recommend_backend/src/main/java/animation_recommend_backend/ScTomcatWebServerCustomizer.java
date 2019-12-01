@@ -1,4 +1,4 @@
-package utils;
+package animation_recommend_backend;
 
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
