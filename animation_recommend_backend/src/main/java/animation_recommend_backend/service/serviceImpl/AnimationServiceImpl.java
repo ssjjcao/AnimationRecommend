@@ -21,7 +21,6 @@ public class AnimationServiceImpl implements AnimationService {
 
     @Override
     public Animation getAnimationByName(String animationName) {
-        Animation animation=animationRepository.getAnimationByName(animationName);
         return animationRepository.getAnimationByName(animationName);
     }
 }
