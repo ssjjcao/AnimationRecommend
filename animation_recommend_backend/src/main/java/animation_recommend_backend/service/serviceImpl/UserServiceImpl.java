@@ -5,6 +5,7 @@ import animation_recommend_backend.repository.AnimationRepository;
 import animation_recommend_backend.repository.AttitudeRepository;
 import animation_recommend_backend.repository.TypeRepository;
 import animation_recommend_backend.repository.UserRepository;
+import animation_recommend_backend.service.FileService;
 import animation_recommend_backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,8 @@ public class UserServiceImpl implements UserService {
     private AnimationRepository animationRepository;
     @Autowired
     private AttitudeRepository attitudeRepository;
+    @Autowired
+    private FileService fileService;
 
     private static HashSet<Type> Strings2TypeSet(TypeRepository typeRepository,String [] myTypes){
         ArrayList<Type> types = new ArrayList<>();
@@ -74,20 +77,19 @@ public class UserServiceImpl implements UserService {
         return new ResponseBox(false, "用户名重复");
     }
 
-    //ToDO multipartFile这里需要好好写一下，暂时先随便写一个生成路径的代替
     //ToDo 如果用户所选种类系统没有提供的解决方案，或者根本不需要管
-    //ToDO 上传页面传递用户信息的解决方案，好像这里要解决的问题还有点多，等脑子清楚的时候再写吧
     @Override
     public ResponseBox update(MultipartFile image, String animationName, String recommend, String[] animationTypes, String link, String animationInfo,String username) {
         Animation animationOriginal=animationRepository.getAnimationByName(animationName);
         if (animationOriginal!=null&&!animationOriginal.getUser().getName().equals(username))
             return new ResponseBox(false,"番剧推荐已存在");
         if (image != null && !image.isEmpty()) {
-            String filename = image.getOriginalFilename();
-            assert filename != null;
-            String prefix = filename.substring(filename.lastIndexOf(".") + 1);
-            String cover = "封面图/" + animationName + prefix;
-            //ToDO 文件保存，相同文件过滤
+            //上传图片重新命名放到封面图文件夹，对原来的文件暂时不做删除处理，需要删除，获取原路径删除即可
+            //未作对于不上传图片的处理，可优化
+            //同一张图片不二次保存暂时是这样
+            String cover="封面图/"+image.getOriginalFilename();
+            if (!fileService.isFileExist(cover))
+                cover=fileService.uploadFile(image,"封面图/");
             Animation animation = animationOriginal==null?new Animation():animationOriginal;
             animation.setCover(cover);
             animation.setName(animationName);
