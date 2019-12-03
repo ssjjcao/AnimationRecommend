@@ -54,8 +54,8 @@ public class UserController {
 
     @GetMapping(path = "getUserInfo")
     public @ResponseBody
-    ResponseDataBox getUserInfo(@RequestParam String username) {
-        return userService.getUserInfo(username);
+    ResponseDataBox getUserInfo(@RequestParam String targetName) {
+        return userService.getUserInfo(targetName);
     }
 
     @PostMapping(path = "modifyUserInfo")

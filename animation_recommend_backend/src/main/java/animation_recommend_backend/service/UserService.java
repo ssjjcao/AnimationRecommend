@@ -18,7 +18,7 @@ public interface UserService {
 
     ResponseBox update(MultipartFile image,String animationName,String recommend, String[] animationTypes,String link,String animationInfo,String username);
 
-    ResponseDataBox getUserInfo(String username);
+    ResponseDataBox getUserInfo(String targetName);
 
     ResponseBox modifyUserInfo(String username,String newUsername,String signature,String[] myTypes);
 
