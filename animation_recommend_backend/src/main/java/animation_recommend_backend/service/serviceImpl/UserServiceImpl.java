@@ -34,11 +34,14 @@ public class UserServiceImpl implements UserService {
     private static HashSet<Type> Strings2TypeSet(TypeRepository typeRepository, String[] myTypes) {
         ArrayList<Type> types = new ArrayList<>();
         if (myTypes == null) return new HashSet<>();
-       // System.out.println(myTypes.length);
+        System.out.println(myTypes.length+"\n");
         for (String myType : myTypes) {
+            System.out.println(myType+"\n");
             Type type = typeRepository.getTypeByName(myType);
-            if (type != null)
+            if (type != null) {
+                System.out.println(myType+"*********add\n");
                 types.add(type);
+            }
         }
         return new HashSet<>(types);
     }
@@ -73,6 +76,7 @@ public class UserServiceImpl implements UserService {
             user.setName(username);
             user.setPassword(password);
             user.setSignature(signature);
+            user=userRepository.save(user);
             user.setTypes(Strings2TypeSet(typeRepository, myTypes));
             userRepository.save(user);
             return new ResponseBox(true, "注册成功");

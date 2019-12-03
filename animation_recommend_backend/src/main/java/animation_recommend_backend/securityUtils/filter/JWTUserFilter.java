@@ -51,7 +51,9 @@ public class JWTUserFilter extends AbstractAuthenticationProcessingFilter {
         if (username==null||password==null) return null;
         if (req.getRequestURI().contains("signUp")){
             String signature=req.getParameter("signature");
-            String[] myTypes=req.getParameterValues("myTypes");
+            //直接的Filter未作数组分割，是我着相了...
+            String types=req.getParameter("myTypes");
+            String[] myTypes=types.split(",");
             String name=req.getParameter("name");
             if (name==null) return null;
             ResponseBox responseBox=userService.signUp(username,password,signature,myTypes);
