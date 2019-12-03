@@ -76,10 +76,8 @@ public class UserServiceImpl implements UserService {
             user.setName(username);
             user.setPassword(password);
             user.setSignature(signature);
-            user=userRepository.save(user);
-            user.setTypes(Strings2TypeSet(typeRepository, myTypes));
             userRepository.save(user);
-            return new ResponseBox(true, "注册成功");
+            return this.modifyUserInfo(username,username,signature,myTypes);
         }
         return new ResponseBox(false, "用户名重复");
     }

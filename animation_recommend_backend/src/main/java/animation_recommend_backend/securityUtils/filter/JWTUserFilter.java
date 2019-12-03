@@ -58,12 +58,13 @@ public class JWTUserFilter extends AbstractAuthenticationProcessingFilter {
             if (name==null) return null;
             ResponseBox responseBox=userService.signUp(username,password,signature,myTypes);
             if (!responseBox.isResult()) return null;
+//            userService.modifyUserInfo(username,username,signature,myTypes);
         }
         if (req.getRequestURI().contains("signIn")){
             ResponseBox responseBox=userService.signIn(username,password);
             if (!responseBox.isResult()) return null;
         }
-        res.setHeader("username", String.valueOf(username));
+        res.setHeader("username", username);
         return getAuthenticationManager().authenticate(
                 new UsernamePasswordAuthenticationToken(userRepository.getUserByName(username).getId(),password)
         );

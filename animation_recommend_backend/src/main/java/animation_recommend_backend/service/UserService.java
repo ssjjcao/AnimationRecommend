@@ -1,6 +1,5 @@
 package animation_recommend_backend.service;
 
-import animation_recommend_backend.entity.Animation;
 import animation_recommend_backend.entity.ResponseBox;
 import animation_recommend_backend.entity.ResponseDataBox;
 import animation_recommend_backend.entity.User;
