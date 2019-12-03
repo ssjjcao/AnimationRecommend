@@ -20,7 +20,7 @@ public interface UserService {
 
     ResponseDataBox getUserInfo(String username);
 
-    ResponseBox modifyUserInfo(String username,String signature,String[] myTypes);
+    ResponseBox modifyUserInfo(String username,String newUsername,String signature,String[] myTypes);
 
     ResponseBox modifyPassword(String oldPassword, String newPassword,String username);
 

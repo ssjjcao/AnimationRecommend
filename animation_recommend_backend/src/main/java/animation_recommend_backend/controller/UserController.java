@@ -58,11 +58,10 @@ public class UserController {
         return userService.getUserInfo(username);
     }
 
-    //IMPORTANT 这个接口在修改了用户名的情况下会返回新的cookie
     @PostMapping(path = "modifyUserInfo")
     public @ResponseBody
-    ResponseBox modifyUserInfo(@RequestParam String username, @RequestParam String signature, @RequestParam String[] myTypes, HttpServletResponse response) {
-        return userService.modifyUserInfo(username, signature, myTypes);
+    ResponseBox modifyUserInfo(@RequestParam String username, @RequestParam String newUsername, @RequestParam String signature, @RequestParam String[] myTypes, HttpServletResponse response) {
+        return userService.modifyUserInfo(username,newUsername, signature, myTypes);
     }
 
     @PostMapping(path = "modifyPassword")

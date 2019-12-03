@@ -104,7 +104,7 @@ public class UserAccountTest {
     public void testUserModifyUserInfoSuccess() {
 //        userService.signIn("bear","123456");
         String[] type = {"青春","搞笑"};
-        ResponseBox responseBox = userService.modifyUserInfo("bear","bear",type);
+        ResponseBox responseBox = userService.modifyUserInfo("bear","bbb","bear",type);
         Assertions.assertTrue(responseBox.isResult());
         Assertions.assertEquals(userService.getUserByName("bear").getSignature(),"bear");
 //        Assertions.assertEquals(userService.getUserByName("bear").getTypes(),type);
@@ -113,13 +113,13 @@ public class UserAccountTest {
     @Test
     public void testUserModifyUserInfoFailure() {
         String[] type = {"青春","搞笑"};
-        ResponseBox responseBox = userService.modifyUserInfo("modefityname","",type);
+        ResponseBox responseBox = userService.modifyUserInfo("modefityname","","",type);
         Assertions.assertFalse(responseBox.isResult());
     }
 
     @Test
     public void testUserModifyUserInfoNull() {
-        ResponseBox responseBox = userService.modifyUserInfo("",null,null);
+        ResponseBox responseBox = userService.modifyUserInfo("","",null,null);
         Assertions.assertFalse(responseBox.isResult());
     }
 

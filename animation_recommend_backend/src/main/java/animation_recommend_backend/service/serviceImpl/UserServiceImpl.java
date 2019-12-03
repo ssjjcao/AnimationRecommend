@@ -106,20 +106,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseDataBox getUserInfo(String username) {
-        User user = userRepository.getUserByName(username);
+    public ResponseDataBox getUserInfo(String targetName) {
+        User user = userRepository.getUserByName(targetName);
         return new ResponseDataBox(true, "", user);
     }
 //ToDO用户信息传递问题
     @Override
-    public ResponseBox modifyUserInfo(String username, String signature, String[] myTypes) {
+    public ResponseBox modifyUserInfo(String username,String newUsername, String signature, String[] myTypes) {
         User user = userRepository.getUserByName(username);
+        System.out.println("*************"+username);
         if (user != null) {
             String message="修改成功";
-            if (!user.getName().equals(username)) {
-                if (userRepository.existsUserByName(username))
+            if (!username.equals(newUsername)&&!newUsername.equals("")) {
+                if (userRepository.existsUserByName(newUsername))
                     return new ResponseBox(false,"该用户名已被使用");
-                user.setName(username);
+                user.setName(newUsername);
             }
             user.setTypes(Strings2TypeSet(typeRepository,myTypes));
             user.setSignature(signature);
@@ -135,6 +136,7 @@ public class UserServiceImpl implements UserService {
         if (user!=null){
             if (user.getPassword().equals(oldPassword)) {
                 user.setPassword(newPassword);
+                userRepository.save(user);
                 return new ResponseBox(true, "密码修改成功");
             }else return new ResponseBox(false,"原密码错误");
         }
