@@ -45,12 +45,12 @@ public class JWTAuthenticationFilter extends GenericFilterBean {
                     .setAuthentication(authentication);
             if (authentication != null) {
                 String username = userRepository.getOne(Integer.valueOf(authentication.getName())).getName();
-                System.out.println("************************\n");
-                System.out.println(username);
-                System.out.println("************************\n");
+//                System.out.println("************************\n");
+//                System.out.println(username);
+//                System.out.println("************************\n");
                 ModifyParametersWrapper prettyFaceRequest=new ModifyParametersWrapper(servletRequest);
                 prettyFaceRequest.setUsername(username);
-                System.out.println(prettyFaceRequest.getParameter("username"));
+//                System.out.println(prettyFaceRequest.getParameter("username"));
                 filterChain.doFilter(prettyFaceRequest, servletResponse);
                 return;
             }
