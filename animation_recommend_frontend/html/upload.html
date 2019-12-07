@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传番剧</title>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="../CSS/upload.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="col-md-10">
+        <h2 style="color: white">上传番剧</h2>
+        <hr class="divider">
+        <div id="panel-group">
+
+            <!-- 1 -->
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">番剧信息填写</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        <!-- strong用于加粗文字 -->
+                        <strong>番剧名称：</strong>
+                        <input class="form-control" id="name">
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>封面：</strong>
+                        <input type="file" id="cover">
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>类型：</strong>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="青春" name="tag">青春</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="热血" name="tag">热血</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="校园" name="tag">校园</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="恋爱" name="tag">恋爱</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="搞笑" name="tag">搞笑</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="穿越" name="tag">穿越</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="科幻" name="tag">科幻</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="泡面" name="tag">泡面</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="治愈" name="tag">治愈</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="历史" name="tag">历史</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="剧情" name="tag">剧情</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="科普" name="tag">科普</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="战斗" name="tag">战斗</label>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>推荐语：</strong>
+                        <input type="text" id="recommend" class="form-control">
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>观看链接：</strong>
+                        <input id="link" class="form-control">
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <strong>详情：</strong>
+                        <textarea id="details"></textarea>
+                    </div>
+                    <div>
+                        <input class="btn btn-success" type="button" value="上传" id="upload">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../JS/upload.js"></script>
+</html>

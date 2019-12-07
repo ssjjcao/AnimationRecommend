@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AnimationShare</title>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../CSS/index.css">
+</head>
+<body>
+<div>
+    <header class="container" id="header">
+        <hgroup class="text-center" id="title">
+            <h1 class="text-left">
+                <span class="text-primary">
+                    AnimationShare⭐番友交流分享
+                </span>
+            </h1>
+            <h2 class="text-muted text-left" style="font-size: smaller">
+                番友网是一个分享最新最酷的ACG同人作品资讯社团,在这里你能找到很多欢乐。
+            </h2>
+        </hgroup>
+        <a href="index.html"><img src="../img/1.jpg" class="center-block img-responsive" style="width: 100%"></a>
+        <nav id="navigation" style="padding-top: 20px">
+            <ul class="nav nav-pills nav-justified">
+                <li id="userName" style="font-size: large; font-weight: bolder; color: blue; font-family: 幼圆"></li>
+                <li style="font-size: large"><a href="#">我的收藏</a></li>
+                <li style="font-size: large"><a href="../html/InfoDetails.html">个人信息</a></li>
+                <li style="font-size: large"><a href="../html/upload.html">上传番剧</a></li>
+                <li style="font-size: large"><a href="#">我的推荐</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <div class="container-fluid center-block" id="Body">
+        <div class="row" id="main">
+            <div class="col-md-8" id="primary">
+                <!--                后端数据库的图片还没有完成，暂时拿不到图片数据，主页的展示部分之后再写-->
+
+                <article>
+                    <header class="text-center text-muted" style="font-size: x-large;margin-left: 20%; color: white">
+                        青春
+                    </header>
+                    <div class="imgBox" style="margin-left: 35%; display: flex; position: relative">
+                        <div id="young1" style="position: absolute; left: 10px;top: 10px">
+
+                        </div>
+                        <div id="young2" style="position: absolute; left: 300px; top: 10px">
+
+                        </div>
+                        <div id="young3" style="position: absolute; right: 10px; top: 10px">
+
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <header class="text-center text-muted" style="font-size: x-large;margin-left: 20%; color: white">
+                        校园
+                    </header>
+                    <div class="imgBox" style="margin-left: 35%; display: flex; position: relative">
+                        <div id="campus1" style="position: absolute; left: 10px;top: 10px">
+
+                        </div>
+                        <div id="campus2" style="position: absolute; left: 300px; top: 10px">
+
+                        </div>
+                        <div id="campus3" style="position: absolute; right: 10px; top: 10px">
+
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <header class="text-center text-muted" style="font-size: x-large;margin-left: 20%; color: white">
+                        治愈
+                    </header>
+                    <div class="imgBox" style="margin-left: 35%; display: flex; position: relative">
+                        <div id="cure1" style="position: absolute; left: 10px;top: 10px">
+
+                        </div>
+                        <div id="cure2" style="position: absolute; left: 300px; top: 10px">
+
+                        </div>
+                        <div id="cure3" style="position: absolute; right: 10px; top: 10px">
+
+                        </div>
+                    </div>
+                </article>
+
+                <article>
+                    <header class="text-center text-muted" style="font-size: x-large;margin-left: 20%; color: white">
+                        热血
+                    </header>
+                    <div class="imgBox" style="margin-left: 35%; display: flex; position: relative">
+                        <div id="blood1" style="position: absolute; left: 10px;top: 10px">
+
+                        </div>
+                        <div id="blood2" style="position: absolute; left: 300px; top: 10px">
+
+                        </div>
+                        <div id="blood3" style="position: absolute; right: 10px; top: 10px">
+
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="col-md-4 form-inline" id="secondary">
+                <p class="text-muted" style="font-size: medium">本站不提供文件下载，请不要发布下载地址。</p>
+                <input type="text" class="form-control" placeholder="输入番剧名" id="aniName">
+                <button type="submit" class="btn btn-default" id="search">搜索</button>
+                <p class="text-muted" style="font-size: x-large;font-weight: bolder">
+                    搜索建议：刀剑神域
+                </p>
+
+                <div id="searchResult">
+                    <table class="table-responsive table-condensed" id="editTable" border="3" width="500">
+                        <tr>
+                            <th>番剧名</th>
+                            <th>点赞数</th>
+                            <th>点踩数</th>
+                            <th></th>
+                        </tr>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<footer class="text-muted" style="font-size: medium">
+    @Copyright 项目管理小组 By 曹家俊/李向民/黄炫铭/雷玮杰/熊利洪/魏华辉
+</footer>
+
+<script src="../JS/index.js"></script>
+</html>

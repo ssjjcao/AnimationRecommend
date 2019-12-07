@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5a56983e-b03f-4fd5-b825-38b3aa548b5d" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1U2x05BYbTXOJCWsWu80yeW8rfA" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lenovo\WebstormProjects\Animation\img" />
+      <recent name="C:\Users\lenovo\WebstormProjects\Animation\CSS" />
+      <recent name="C:\Users\lenovo\WebstormProjects\Animation\html" />
+      <recent name="C:\Users\lenovo\WebstormProjects\Animation\JS" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5a56983e-b03f-4fd5-b825-38b3aa548b5d" name="Default Changelist" comment="" />
+      <created>1574568265320</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574568265320</updated>
+      <workItem from="1574568273444" duration="902000" />
+      <workItem from="1574569218702" duration="879000" />
+      <workItem from="1574651466314" duration="10931000" />
+      <workItem from="1574691530668" duration="3494000" />
+      <workItem from="1574737801470" duration="7169000" />
+      <workItem from="1574777192574" duration="1636000" />
+      <workItem from="1574911120462" duration="11996000" />
+      <workItem from="1574926487753" duration="9839000" />
+      <workItem from="1574948181584" duration="323000" />
+      <workItem from="1575100029451" duration="9407000" />
+      <workItem from="1575181181330" duration="362000" />
+      <workItem from="1575346038999" duration="12412000" />
+      <workItem from="1575515900346" duration="11225000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
