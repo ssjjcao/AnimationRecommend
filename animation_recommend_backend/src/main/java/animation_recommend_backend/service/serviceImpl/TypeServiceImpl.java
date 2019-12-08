@@ -26,7 +26,7 @@ public class TypeServiceImpl implements TypeService {
             if (recommendIndex1 == recommendIndex2) {
                 return 0;
             } else {
-                return recommendIndex1 > recommendIndex2 ? 1 : -1;
+                return recommendIndex2 - recommendIndex1;
             }
         };
         animations.sort(comparator);
