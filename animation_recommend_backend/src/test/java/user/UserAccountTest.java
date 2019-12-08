@@ -70,7 +70,7 @@ public class UserAccountTest {
         userService.deleteUserById(user.getId());
 
         responseBox = userService.signUp("Dream", "niubility","dwad",type);
-        userService.getUserByName("Dream");
+        user = userService.getUserByName("Dream");
         Assertions.assertTrue(responseBox.isResult());
         userService.deleteUserById(user.getId());
     }
@@ -102,18 +102,18 @@ public class UserAccountTest {
 
     @Test
     public void testUserModifyUserInfoSuccess() {
-//        userService.signIn("bear","123456");
+        userService.signIn("bear","123456");
         String[] type = {"青春","搞笑"};
-        ResponseBox responseBox = userService.modifyUserInfo("bear","bbb","bear",type);
+        ResponseBox responseBox = userService.modifyUserInfo("bear","reab","bear",type);
         Assertions.assertTrue(responseBox.isResult());
-        Assertions.assertEquals(userService.getUserByName("bear").getSignature(),"bear");
-//        Assertions.assertEquals(userService.getUserByName("bear").getTypes(),type);
+        Assertions.assertEquals(userService.getUserByName("reab").getSignature(),"bear");
+        userService.modifyUserInfo("reab","bear","bear",type);
     }
 
     @Test
     public void testUserModifyUserInfoFailure() {
         String[] type = {"青春","搞笑"};
-        ResponseBox responseBox = userService.modifyUserInfo("modefityname","","",type);
+        ResponseBox responseBox = userService.modifyUserInfo("modefityname","newName","",type);
         Assertions.assertFalse(responseBox.isResult());
     }
 
