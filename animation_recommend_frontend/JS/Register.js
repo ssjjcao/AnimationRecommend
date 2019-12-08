@@ -34,8 +34,9 @@ document.getElementById("submit").addEventListener("click", function () {
         processData: false,
         success: function (data) {
             console.log(data);
-            alert(data.hasOwnProperty("result") + data.result);
+            // alert(data.hasOwnProperty("result") + data.result);
             if (data.result) {
+                alert("注册成功");
                 window.location.href = "./login.html"
             }
         }

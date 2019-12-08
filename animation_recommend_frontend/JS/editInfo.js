@@ -24,8 +24,7 @@ document.getElementById("editInfo").addEventListener("click",function () {
             request.setRequestHeader("authorization", "Bearer "+ getCookie("token"));
         },
         success: function (data) {
-            alert(data.hasOwnProperty("message") + data.message);
-
+            alert(data.message);
         }
     });
 });
@@ -48,7 +47,7 @@ document.getElementById("editPass").addEventListener("click", function () {
             request.setRequestHeader("authorization", "Bearer "+ getCookie("token"));
         },
         success: function (data) {
-            alert(data.hasOwnProperty("message") + data.message);
+            alert(data.message);
             window.location.href = "./login.html"
         }
     });

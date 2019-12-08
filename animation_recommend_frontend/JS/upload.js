@@ -38,10 +38,14 @@ document.getElementById("upload").addEventListener("click",function () {
             request.setRequestHeader("authorization", "Bearer "+ getCookie("token"));
         },
         success: function (data) {
-            alert(data.hasOwnProperty("message") + data.message);
+            alert(data.message);
         }
     });
 
+});
+
+document.getElementById("back").addEventListener("click", function () {
+   window.location.href = "./index.html"
 });
 
 function setCookie(cname, cvalue, exdays) {
