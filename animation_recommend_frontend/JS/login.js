@@ -18,9 +18,10 @@ document.getElementById("submit").addEventListener("click", function () {
         dataType: "json",
         success: function (data) {
             console.log(data);
-            alert(data.hasOwnProperty("result") + data.result);
+            // alert(data.hasOwnProperty("result") + data.result);
 
             if (data.result) {
+                alert("登陆成功");
                 window.location.href = "./index.html";
                 setCookie("token",data.result);
             }

@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a56983e-b03f-4fd5-b825-38b3aa548b5d" name="Default Changelist" comment="" />
+    <list default="true" id="5a56983e-b03f-4fd5-b825-38b3aa548b5d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/editInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/editInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JS/upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/JS/upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/InfoDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/InfoDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/editInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/editInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/upload.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,16 +22,21 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1U2x05BYbTXOJCWsWu80yeW8rfA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -70,10 +85,22 @@
       <workItem from="1575515900346" duration="11225000" />
       <workItem from="1575791090825" duration="471000" />
       <workItem from="1575792946083" duration="527000" />
+      <workItem from="1575795547152" duration="972000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
