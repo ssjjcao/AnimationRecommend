@@ -20,7 +20,7 @@ public class FileServiceImpl  implements FileService {
         fileName = UUID.randomUUID() + suffixName;
         System.out.println(fileName);
         try {
-            file.transferTo(new File("/"+directory+fileName));
+            file.transferTo(new File("/"+directory+fileName).getAbsoluteFile());
         } catch (IOException e) {
             e.printStackTrace();
         }
