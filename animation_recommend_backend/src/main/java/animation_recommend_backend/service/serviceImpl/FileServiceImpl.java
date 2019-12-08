@@ -19,8 +19,9 @@ public class FileServiceImpl  implements FileService {
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         fileName = UUID.randomUUID() + suffixName;
         System.out.println(fileName);
+        File file1=new File("/"+directory+fileName);
         try {
-            file.transferTo(new File("/"+directory+fileName).getAbsoluteFile());
+            file.transferTo(file1.getAbsoluteFile());
         } catch (IOException e) {
             e.printStackTrace();
         }
