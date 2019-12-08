@@ -1,15 +1,41 @@
 .imgBox{
     border-top: 2px solid cadetblue;
-    width: 50%;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
 }
 
 .imgBox img{
-    width: 50%;
-    height: 200px;
+    width: 70%;
+    height: 90%;
     margin: 0 auto;
     padding-top: 30px;
+}
+
+.imgBox1{
+    border-top: 2px solid cadetblue;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.imgBox1 img{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.img1{
+    display: block;
+}
+
+.img2{
+    display: none;
+}
+
+.img3{
+    display: none;
 }
 
 html,body{

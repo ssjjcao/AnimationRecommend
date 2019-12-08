@@ -6,9 +6,9 @@ $.ajax({
     data: {typeName: "青春"},
     dataType: "json",
     success: function (data) {
-        document.getElementById("young1").innerHTML = "<p style='color: white'>"+data[0].name+"</p>"+"<img src=\""+data[0].cover+"\">";
-        document.getElementById("young2").innerHTML = "<p style='color: white'>"+data[1].name+"</p>"+"<img src=\""+data[1].cover+"\">";
-        document.getElementById("young3").innerHTML = "<p style='color: white'>"+data[2].name+"</p>"+"<img src=\""+data[2].cover+"\">";
+        document.getElementById("young1").innerHTML = "<p style='color: white'>"+data[0].name+"</p>"+"<img src=\""+data[0].cover+"\" width='50' height='300'>";
+        document.getElementById("young2").innerHTML = "<p style='color: white'>"+data[1].name+"</p>"+"<img src=\""+data[1].cover+"\" width='50' height='300'>";
+        document.getElementById("young3").innerHTML = "<p style='color: white'>"+data[2].name+"</p>"+"<img src=\""+data[2].cover+"\" width='50' height='300'>";
     }
 });
 
@@ -18,9 +18,9 @@ $.ajax({
     data: {typeName: "校园"},
     dataType: "json",
     success: function (data) {
-        document.getElementById("campus1").innerHTML = "<p style='color: white'>"+data[0].name+"</p>"+"<img src=\""+data[0].cover+"\">";
-        document.getElementById("campus2").innerHTML = "<p style='color: white'>"+data[1].name+"</p>"+"<img src=\""+data[1].cover+"\">";
-        document.getElementById("campus3").innerHTML = "<p style='color: white'>"+data[2].name+"</p>"+"<img src=\""+data[2].cover+"\">";
+        document.getElementById("campus1").innerHTML = "<p style='color: white'>"+data[0].name+"</p>"+"<img src=\""+data[0].cover+"\" width='50px' height='300px'>";
+        document.getElementById("campus2").innerHTML = "<p style='color: white'>"+data[1].name+"</p>"+"<img src=\""+data[1].cover+"\" width='50px' height='300px'>";
+        document.getElementById("campus3").innerHTML = "<p style='color: white'>"+data[2].name+"</p>"+"<img src=\""+data[2].cover+"\" width='50px' height='300px'>";
     }
 });
 
@@ -30,9 +30,9 @@ $.ajax({
     data: {typeName: "治愈"},
     dataType: "json",
     success: function (data) {
-        document.getElementById("cure1").innerHTML = "<p style='color: white'>"+data[0].name+"</p>"+"<img src=\""+data[0].cover+"\">";
-        document.getElementById("cure2").innerHTML = "<p style='color: white'>"+data[1].name+"</p>"+"<img src=\""+data[1].cover+"\">";
-        document.getElementById("cure3").innerHTML = "<p style='color: white'>"+data[2].name+"</p>"+"<img src=\""+data[2].cover+"\">";
+        document.getElementById("cure1").innerHTML = "<p style='color: white'>"+data[0].name+"</p>"+"<img src=\""+data[0].cover+"\" width='50px' height='300px'>";
+        document.getElementById("cure2").innerHTML = "<p style='color: white'>"+data[1].name+"</p>"+"<img src=\""+data[1].cover+"\" width='50px' height='300px'>";
+        document.getElementById("cure3").innerHTML = "<p style='color: white'>"+data[2].name+"</p>"+"<img src=\""+data[2].cover+"\" width='50px' height='300px'>";
     }
 });
 
@@ -42,9 +42,9 @@ $.ajax({
     data: {typeName: "热血"},
     dataType: "json",
     success: function (data) {
-        document.getElementById("blood1").innerHTML = "<p style='color: white'>"+data[0].name+"</p>"+"<img src=\""+data[0].cover+"\">";
-        document.getElementById("blood2").innerHTML = "<p style='color: white'>"+data[1].name+"</p>"+"<img src=\""+data[1].cover+"\">";
-        document.getElementById("blood3").innerHTML = "<p style='color: white'>"+data[2].name+"</p>"+"<img src=\""+data[2].cover+"\">";
+        document.getElementById("blood1").innerHTML = "<p style='color: white'>"+data[0].name+"</p>"+"<img src=\""+data[0].cover+"\" width='50px' height='300px'>";
+        document.getElementById("blood2").innerHTML = "<p style='color: white'>"+data[1].name+"</p>"+"<img src=\""+data[1].cover+"\" width='50px' height='300px'>";
+        document.getElementById("blood3").innerHTML = "<p style='color: white'>"+data[2].name+"</p>"+"<img src=\""+data[2].cover+"\" width='50px' height='300px'>";
     }
 });
 
@@ -114,3 +114,17 @@ function getCookie(cname) {
     }
     return "";
 }
+
+var index=0;
+//改变图片
+function ChangeImg() {
+    index++;
+    var a=document.getElementsByClassName("img-slide");
+    if(index>=a.length) index=0;
+    for(var i=0;i<a.length;i++){
+        a[i].style.display='none';
+    }
+    a[index].style.display='block';
+}
+//设置定时器，每隔两秒切换一张图片
+setInterval(ChangeImg,2000);
