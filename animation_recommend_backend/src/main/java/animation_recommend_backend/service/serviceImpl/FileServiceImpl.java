@@ -11,7 +11,7 @@ import java.util.UUID;
 @Service
 public class FileServiceImpl  implements FileService {
 //    String url="killmytime.top:8080/img/";
-    String url="localhost:8080/img/";
+    String url="http://localhost:8080/img/";
     @Override
     public String uploadFile(MultipartFile file,String directory) {
         String fileName = file.getOriginalFilename();
@@ -19,9 +19,9 @@ public class FileServiceImpl  implements FileService {
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         fileName = UUID.randomUUID() + suffixName;
         System.out.println(fileName);
-        File file1=new File("/"+directory+fileName);
+//        File file1=new File("/"+directory+fileName);
         try {
-            file.transferTo(file1.getAbsoluteFile());
+            file.transferTo(new File("C:\\"+directory+fileName).getAbsoluteFile());
         } catch (IOException e) {
             e.printStackTrace();
         }
