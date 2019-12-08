@@ -1,5 +1,5 @@
 const obj = {};
-obj.username = getCookie("user");
+obj.targetName = getCookie("user");
 const jsonStr = JSON.stringify(obj);
 var json1 = JSON.parse(jsonStr);
 
