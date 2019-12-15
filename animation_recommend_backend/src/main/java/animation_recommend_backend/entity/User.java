@@ -22,7 +22,7 @@ public class User {
     @Column(name = "signature")
     private String signature;
     @JsonIgnore
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinTable(name = "user_type", inverseJoinColumns = @JoinColumn(name = "type_id")
             , joinColumns = @JoinColumn(name = "user_id"))
     private Set<Type> types = new HashSet<>();

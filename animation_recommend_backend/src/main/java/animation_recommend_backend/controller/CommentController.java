@@ -29,8 +29,8 @@ public class CommentController {
 
     @PostMapping(path = "deleteOneComment")
     public @ResponseBody
-    ResponseBox deleteOneComment(@RequestParam String username, @RequestParam String animationName) {
-        return commentService.deleteOneComment(username, animationName);
+    ResponseBox deleteOneComment(@RequestParam String comment, @RequestParam String username, @RequestParam String animationName) {
+        return commentService.deleteOneComment(comment, username, animationName);
     }
 
     @GetMapping(path = "getAllComments")

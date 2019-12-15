@@ -20,11 +20,11 @@ public class Comment {
     @Column(name = "updateTime")
     private Timestamp updateTime;
     @JsonIgnore
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, optional = false)
+    @ManyToOne(cascade = {CascadeType.MERGE,  CascadeType.REFRESH}, optional = false)
     @JoinColumn(name = "user_id")
     private User user;
     @JsonIgnore
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, optional = false)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, optional = false)
     @JoinColumn(name = "animation_id")
     private Animation animation;
 

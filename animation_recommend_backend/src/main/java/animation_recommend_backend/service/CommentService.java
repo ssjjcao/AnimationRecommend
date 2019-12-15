@@ -8,9 +8,9 @@ import java.util.List;
 public interface CommentService {
     ResponseBox comment(String comment, String animationName, String username);
 
-    List<Comment> getMyComments(String username,String animationName);
+    List<Comment> getMyComments(String username, String animationName);
 
-    ResponseBox deleteOneComment(String username,String animationName);
+    ResponseBox deleteOneComment(String comment, String username, String animationName);
 
     List<Comment> getAllComments(String animationName);
 }
