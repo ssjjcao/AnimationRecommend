@@ -39,7 +39,7 @@ public class CommentServiceTest {
 
     @Test
     public void  testDeleteOneCommentSuccess(){
-        ResponseBox responseBox = commentService.deleteOneComment("bear","网球王子");
+        ResponseBox responseBox = commentService.deleteOneComment("好喜欢","bear","网球王子");
         Assertions.assertTrue(responseBox.isResult());
     }
 

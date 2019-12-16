@@ -17,12 +17,12 @@ public class Type {
     @Column(name = "name")
     private String name;
     @JsonIgnore
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinTable(name = "user_type", inverseJoinColumns = @JoinColumn(name = "user_id")
             , joinColumns = @JoinColumn(name = "type_id"))
     private Set<User> users = new HashSet<>();
     @JsonIgnore
-    @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = {CascadeType.MERGE,  CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinTable(name = "animation_type", inverseJoinColumns = @JoinColumn(name = "animation_id")
             , joinColumns = @JoinColumn(name = "type_id"))
     private Set<Animation> animations = new HashSet<>();
