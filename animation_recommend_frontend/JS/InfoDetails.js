@@ -1,3 +1,6 @@
+if (!getCookie("user")) {
+    window.location = "../html/login.html";
+}
 const obj = {};
 obj.targetName = getCookie("user");
 const jsonStr = JSON.stringify(obj);
@@ -9,7 +12,7 @@ $.ajax({
     data: json1,
     dataType: "json",
     beforeSend: function (request) {
-        request.setRequestHeader("authorization", "Bearer "+ getCookie("token"));
+        request.setRequestHeader("authorization", "Bearer " + getCookie("token"));
     },
     success: function (data) {
         console.log(data);
@@ -27,7 +30,6 @@ $.ajax({
 document.getElementById("edit").addEventListener("click", function () {
     window.location.href = "./editInfo.html"
 });
-
 
 
 function setCookie(cname, cvalue, exdays) {

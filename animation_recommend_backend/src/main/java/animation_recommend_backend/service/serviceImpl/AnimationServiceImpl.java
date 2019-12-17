@@ -23,4 +23,11 @@ public class AnimationServiceImpl implements AnimationService {
     public Animation getAnimationByName(String animationName) {
         return animationRepository.getAnimationByName(animationName);
     }
+
+    @Override
+    public void updateAnimationPageViewByName(String animationName) {
+        Animation animation = animationRepository.getAnimationByName(animationName);
+        animation.setPage_view(animation.getPage_view() + 1);
+        animationRepository.save(animation);
+    }
 }

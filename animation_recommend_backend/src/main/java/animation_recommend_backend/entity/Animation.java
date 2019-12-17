@@ -29,7 +29,7 @@ public class Animation {
     private int like_num;
     @Column(name = "unlike_num")
     private int unlike_num;
-    @JsonIgnore
+
     @ManyToMany(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinTable(name = "animation_type", joinColumns = @JoinColumn(name = "animation_id")
             , inverseJoinColumns = @JoinColumn(name = "type_id"))

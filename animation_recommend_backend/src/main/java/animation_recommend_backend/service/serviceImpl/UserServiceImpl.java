@@ -13,10 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -34,12 +32,12 @@ public class UserServiceImpl implements UserService {
     private static HashSet<Type> Strings2TypeSet(TypeRepository typeRepository, String[] myTypes) {
         ArrayList<Type> types = new ArrayList<>();
         if (myTypes == null) return new HashSet<>();
-        System.out.println(myTypes.length+"\n");
+        System.out.println(myTypes.length + "\n");
         for (String myType : myTypes) {
-            System.out.println(myType+"\n");
+            System.out.println(myType + "\n");
             Type type = typeRepository.getTypeByName(myType);
             if (type != null) {
-                System.out.println(myType+"*********add\n");
+                System.out.println(myType + "*********add\n");
                 types.add(type);
             }
         }
@@ -77,7 +75,7 @@ public class UserServiceImpl implements UserService {
             user.setPassword(password);
             user.setSignature(signature);
             userRepository.save(user);
-            return this.modifyUserInfo(username,username,signature,myTypes);
+            return this.modifyUserInfo(username, username, signature, myTypes);
         }
         return new ResponseBox(false, "用户名重复");
     }
@@ -168,6 +166,12 @@ public class UserServiceImpl implements UserService {
             return new ResponseBox(true, "删除成功");
         }
         return new ResponseBox(false, "请联系后台，unknown");
+    }
+
+    @Override
+    public List<Animation> getRecommendationsByUsername(String username) {
+        Set<Animation> animations = userRepository.getUserByName(username).getAnimations();
+        return new ArrayList<>(animations);
     }
 
 

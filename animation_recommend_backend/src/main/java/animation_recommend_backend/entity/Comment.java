@@ -19,8 +19,12 @@ public class Comment {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "updateTime")
     private Timestamp updateTime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @Column(name = "createTime")
+    private Timestamp createTime;
+
     @JsonIgnore
-    @ManyToOne(cascade = {CascadeType.MERGE,  CascadeType.REFRESH}, optional = false)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH}, optional = false)
     @JoinColumn(name = "user_id")
     private User user;
     @JsonIgnore
@@ -66,5 +70,13 @@ public class Comment {
 
     public void setAnimation(Animation animation) {
         this.animation = animation;
+    }
+
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
     }
 }

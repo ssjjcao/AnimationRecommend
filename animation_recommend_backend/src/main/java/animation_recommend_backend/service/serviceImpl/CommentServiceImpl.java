@@ -30,11 +30,11 @@ public class CommentServiceImpl implements CommentService {
         Comment commentObject = new Comment();
         Animation animation = animationRepository.getAnimationByName(animationName);
         if (animation == null)
-            return new ResponseBox(false, "评论失败");
+            return new ResponseBox(false, "没有动画");
         commentObject.setAnimation(animation);
         User user = userRepository.getUserByName(username);
         if (user == null)
-            return new ResponseBox(false, "评论失败");
+            return new ResponseBox(false, "没有用户");
         commentObject.setUser(user);
         commentObject.setComment(comment);
         commentRepository.save(commentObject);

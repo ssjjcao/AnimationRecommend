@@ -40,11 +40,11 @@ public class AttitudeServiceImpl implements AttitudeService {
         attitude = new Attitude();
         User user = userRepository.getUserByName(username);
         if (user == null)
-            return new ResponseBox(false, "点赞失败");
+            return new ResponseBox(false, "没有用户");
         attitude.setUser(user);
         Animation animation = animationRepository.getAnimationByName(animationName);
         if (animation == null)
-            return new ResponseBox(false, "点赞失败");
+            return new ResponseBox(false, "没有动画");
         attitude.setAnimation(animation);
         attitude.setFavorite(true);
         attitudeRepository.save(attitude);
@@ -102,6 +102,11 @@ public class AttitudeServiceImpl implements AttitudeService {
             } else return new ResponseBox(false, "您已经赞过这篇文章了");
         }
         return new ResponseBox(false, "您还没有踩过这篇文章吖");
+    }
+
+    @Override
+    public List<Attitude> getCollectionsByUsername(String username) {
+        return attitudeRepository.getAttitudesByUser_NameAndFavorite(username, true);
     }
 
     private void attitudeUpdate(String animationName) {

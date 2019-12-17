@@ -6,5 +6,9 @@ import java.util.List;
 
 public interface AnimationService {
     List<Animation> searchByName(String name);
+
     Animation getAnimationByName(String animationName);
+
+    void updateAnimationPageViewByName(String animationName);
+
 }

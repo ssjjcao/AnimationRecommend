@@ -1,6 +1,7 @@
 package animation_recommend_backend.service.serviceImpl;
 
 import animation_recommend_backend.entity.Animation;
+import animation_recommend_backend.entity.Type;
 import animation_recommend_backend.repository.TypeRepository;
 import animation_recommend_backend.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,10 @@ public class TypeServiceImpl implements TypeService {
         };
         animations.sort(comparator);
         return animations;
+    }
+
+    @Override
+    public List<Type> getAllTypes() {
+        return typeRepository.findAll();
     }
 }

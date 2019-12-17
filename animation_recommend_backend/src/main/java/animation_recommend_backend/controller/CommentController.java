@@ -3,6 +3,9 @@ package animation_recommend_backend.controller;
 import animation_recommend_backend.entity.Comment;
 import animation_recommend_backend.entity.ResponseBox;
 import animation_recommend_backend.service.CommentService;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +18,7 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @PostMapping(path = "comment")
+    @PostMapping(path ="commentAnimation")
     public @ResponseBody
     ResponseBox comment(@RequestParam String username, @RequestParam String comment, @RequestParam String animationName) {
         return commentService.comment(comment, animationName, username);
@@ -35,7 +38,15 @@ public class CommentController {
 
     @GetMapping(path = "getAllComments")
     public @ResponseBody
-    List<Comment> getAllComments(@RequestParam String animationName) {
-        return commentService.getAllComments(animationName);
+    JSON getAllComments(@RequestParam String animationName) {
+        List<Comment> comments = commentService.getAllComments(animationName);
+        JSONArray result = new JSONArray();
+        for (Comment comment : comments) {
+            JSONObject comment_json = new JSONObject();
+            comment_json.put("comment", comment);
+            comment_json.put("username", comment.getUser().getName());
+            result.add(comment_json);
+        }
+        return result;
     }
 }

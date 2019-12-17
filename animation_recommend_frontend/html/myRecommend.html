@@ -2,9 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>我的推荐</title>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="../CSS/recommendation.css" rel="stylesheet">
 </head>
 <body>
+<header class="container" id="header">
+    <nav id="navigation" style="padding-top: 20px">
+        <ul class="nav nav-pills nav-justified">
+            <li id="userName" style="font-size: large; font-weight: bolder; color: blue; font-family: 幼圆"></li>
+            <li style="font-size: large"><a href="../html/myCollection.html">我的收藏</a></li>
+            <li style="font-size: large"><a href="../html/InfoDetails.html">个人信息</a></li>
+            <li style="font-size: large"><a href="../html/upload.html">上传番剧</a></li>
+            <li style="font-size: large"><a href="../html/myRecommend.html">我的推荐</a></li>
+            <li style="font-size: large"><a href="../html/login.html">切换账号</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="row">
+                <b style="color: white;font-size: 30px;margin-left: 2%">我的推荐</b>
 
+                <b class="text-primary" style="margin-top: 2%;margin-right:2%;float: right">
+                    <a href="index.html">AnimationShare⭐番友交流分享</a>
+                </b>
+            </div>
+            <hr class="divider">
+            <div id="recommendations">
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../JS/recommendation.js"></script>
 </html>

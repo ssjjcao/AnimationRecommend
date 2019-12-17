@@ -12,5 +12,5 @@ public interface AttitudeRepository extends JpaRepository<Attitude, Integer> {
 
     List<Attitude> getAttitudesByAnimation_Name(String animation_Name);
 
-    ;
+    List<Attitude> getAttitudesByUser_NameAndFavorite(String username, boolean favorite);
 }

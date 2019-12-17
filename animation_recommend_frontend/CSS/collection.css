@@ -1,0 +1,16 @@
+body {
+    margin-top: 65px;
+    background: url("../img/6.jpg") repeat local center 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none
+}
+
+textarea:focus {
+    outline: none;
+}
