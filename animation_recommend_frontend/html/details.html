@@ -45,13 +45,13 @@
 
                         <div class="col-md-4">
                             <img id="cover" style=" width:100%;height: auto">
-                            <button id="like" type="button" class="btn  col-md-4  col-md-offset-1"
+                            <button type="button" class="btn  col-md-4  col-md-offset-1"
                                     style="background: none" onclick="like()">
-                                <img src="../img/点赞.png" style="width: 30%;height: auto;">
+                                <img id="like" src="../img/点赞.png" style="width: 30%;height: auto;">
                             </button>
-                            <button id="dislike" type="button" class="btn  col-md-4  col-md-offset-1"
+                            <button type="button" class="btn  col-md-4  col-md-offset-1"
                                     style="background: none" onclick="dislike()">
-                                <img src="../img/点踩.png" style="width: 30%;height: auto;">
+                                <img id="dislike" src="../img/点踩.png" style="width: 30%;height: auto;">
                             </button>
 
                         </div>
@@ -113,7 +113,7 @@
                             <div class="col-md-12">
                                 <div class="col-md-10">
                                 <textarea placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反对的言论"
-                                          id="write_comment" class="col-md-4 col-md-offset-2"></textarea></div>
+                                          id="write_comment" class="col-md-4 col-md-offset-2 write_comment_class"></textarea></div>
                                 <button type="button"
                                         class="btn btn-info  col-md-1"
                                         onclick="comment()">发表评论
@@ -123,8 +123,12 @@
                         </div>
                         <hr class="split-pane-divider">
                         <div id="comment_show">
-
                         </div>
+                        <ul class="pager">
+                            <li class="previous" id="last"><a onclick="lastPage()" href="#comment_show">&larr; last</a>
+                            </li>
+                            <li class="next" id="next"><a onclick="nextPage()" href="#comment_show">next &rarr;</a></li>
+                        </ul>
                     </div>
 
                 </div>

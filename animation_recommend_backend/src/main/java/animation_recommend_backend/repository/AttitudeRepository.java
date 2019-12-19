@@ -3,6 +3,8 @@ package animation_recommend_backend.repository;
 import animation_recommend_backend.entity.Animation;
 import animation_recommend_backend.entity.Attitude;
 import animation_recommend_backend.entity.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -12,5 +14,5 @@ public interface AttitudeRepository extends JpaRepository<Attitude, Integer> {
 
     List<Attitude> getAttitudesByAnimation_Name(String animation_Name);
 
-    List<Attitude> getAttitudesByUser_NameAndFavorite(String username, boolean favorite);
+    Page<Attitude> getAttitudesByUser_NameAndFavorite(String username, boolean favorite, Pageable pageable);
 }

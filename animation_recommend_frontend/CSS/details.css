@@ -7,7 +7,7 @@ body {
     background: url("../img/6.jpg") repeat local center 0;
 }
 
-#write_comment {
+.write_comment_class {
     border-radius: 5px;
     background-color: rgba(241, 241, 241, .98);
     width: 80%;
@@ -16,11 +16,11 @@ body {
     resize: none;
 }
 
-#write_comment:focus {
+.write_comment_class:focus {
     background: white;
 }
 
-#write_comment:hover {
+.write_comment_class:hover {
     background: white;
 }
 a {

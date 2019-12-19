@@ -9,6 +9,8 @@ import animation_recommend_backend.repository.CommentRepository;
 import animation_recommend_backend.repository.UserRepository;
 import animation_recommend_backend.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,6 +44,19 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    public ResponseBox modifyComment(String username, String oldComment, String newComment, String animationName) {
+        if (commentRepository.existsCommentByCommentAndAnimation_NameAndUser_Name(newComment, animationName, username))
+            return new ResponseBox(false, "出现相同评论");
+        Comment comment = commentRepository.findCommentByCommentAndAnimation_NameAndUser_Name(oldComment, animationName, username);
+        if (comment == null) {
+            return new ResponseBox(false, "不存在评论");
+        }
+        comment.setComment(newComment);
+        commentRepository.save(comment);
+        return new ResponseBox(true, "");
+    }
+
+    @Override
     public List<Comment> getMyComments(String username, String animationName) {
         return commentRepository.getCommentsByUser_NameAndAnimation_Name(username, animationName);
     }
@@ -56,4 +71,11 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> getAllComments(String animationName) {
         return commentRepository.getCommentsByAnimation_Name(animationName);
     }
+
+    @Override
+    public Page<Comment> getAllCommentsByAnimationNameAndPageable(String animationName, Pageable pageable) {
+        return commentRepository.getCommentsByAnimation_Name(animationName, pageable);
+    }
+
+
 }

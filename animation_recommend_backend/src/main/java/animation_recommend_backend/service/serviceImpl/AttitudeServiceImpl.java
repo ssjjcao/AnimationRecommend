@@ -9,6 +9,8 @@ import animation_recommend_backend.repository.AttitudeRepository;
 import animation_recommend_backend.repository.UserRepository;
 import animation_recommend_backend.service.AttitudeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -105,8 +107,13 @@ public class AttitudeServiceImpl implements AttitudeService {
     }
 
     @Override
-    public List<Attitude> getCollectionsByUsername(String username) {
-        return attitudeRepository.getAttitudesByUser_NameAndFavorite(username, true);
+    public Attitude getAttitudeByUsernameAndAnimationName(String username, String animationName) {
+        return attitudeRepository.getAttitudeByUser_NameAndAnimation_Name(username, animationName);
+    }
+
+    @Override
+    public Page<Attitude> getCollectionsByUsernameAndPageable(String username, Pageable pageable) {
+        return attitudeRepository.getAttitudesByUser_NameAndFavorite(username, true, pageable);
     }
 
     private void attitudeUpdate(String animationName) {

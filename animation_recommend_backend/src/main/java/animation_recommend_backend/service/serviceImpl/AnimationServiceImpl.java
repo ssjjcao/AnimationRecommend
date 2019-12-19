@@ -4,6 +4,8 @@ import animation_recommend_backend.entity.Animation;
 import animation_recommend_backend.repository.AnimationRepository;
 import animation_recommend_backend.service.AnimationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,5 +31,15 @@ public class AnimationServiceImpl implements AnimationService {
         Animation animation = animationRepository.getAnimationByName(animationName);
         animation.setPage_view(animation.getPage_view() + 1);
         animationRepository.save(animation);
+    }
+
+    @Override
+    public Page<Animation> findAnimationsByPageable(Pageable pageable) {
+        return animationRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Animation> getRecommendationsByUsernameAndPageable(String username, Pageable pageable) {
+        return animationRepository.findAllByUser_Name(username, pageable);
     }
 }
