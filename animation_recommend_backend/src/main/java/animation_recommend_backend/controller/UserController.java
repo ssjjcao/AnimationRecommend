@@ -42,8 +42,8 @@ public class UserController {
 
     @PostMapping(path = "signUp")
     public @ResponseBody
-    ResponseBox signUp() {
-        return null;
+    ResponseBox signUp(@RequestParam String name, @RequestParam String password,@RequestParam String signature,@RequestParam String[] myTypes) {
+        return userService.signUp(name,password,signature,myTypes);
     }
 
 

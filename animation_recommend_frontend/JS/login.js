@@ -10,6 +10,7 @@ document.getElementById("submit").addEventListener("click", function () {
     obj.password = document.getElementById("password").value;
     const jsonStr = JSON.stringify(obj);
     var json1 = JSON.parse(jsonStr);
+    console.log(json1);
 
     $.ajax({
         url: "http://127.0.0.1:8080/user/signIn",
@@ -25,8 +26,10 @@ document.getElementById("submit").addEventListener("click", function () {
                 window.location.href = "./index.html";
                 setCookie("token",data.result);
             }
+        },
+        error:function (data) {
+            alert("用户名或密码错误！");
         }
-
     });
 });
 

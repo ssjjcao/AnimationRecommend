@@ -18,7 +18,7 @@ document.getElementById("submit").addEventListener("click", function () {
     formData.append("signature",document.getElementById("signature").value);
     formData.append("myTypes",tags);
 
-    console.log(formData.get('myTypes'));
+    console.log(formData.get("password"))
 
     // const jsonStr = JSON.stringify(obj);
     // var json1 = JSON.parse(jsonStr);
@@ -34,10 +34,11 @@ document.getElementById("submit").addEventListener("click", function () {
         processData: false,
         success: function (data) {
             console.log(data);
-            // alert(data.hasOwnProperty("result") + data.result);
             if (data.result) {
                 alert("注册成功");
                 window.location.href = "./login.html"
+            }else {
+                swal("注册失败",data.message,"error");
             }
         }
     });

@@ -52,7 +52,6 @@ public class JWTAuthenticationFilter extends GenericFilterBean {
                 return;
             }
 //            else return;
-            //ToDO 其他异常情况
             filterChain.doFilter(servletRequest, servletResponse);
         }
     }

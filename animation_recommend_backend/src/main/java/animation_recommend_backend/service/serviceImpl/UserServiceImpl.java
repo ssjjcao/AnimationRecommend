@@ -55,7 +55,6 @@ public class UserServiceImpl implements UserService {
         this.userRepository.deleteById(id);
     }
 
-    //ToDO 密码强度校验先搁置一下，之后确定了再加上去
     @Override
     public ResponseBox signIn(String username, String password) {
         User user = userRepository.getUserByName(username);
@@ -80,7 +79,6 @@ public class UserServiceImpl implements UserService {
         return new ResponseBox(false, "用户名重复");
     }
 
-    //ToDo 如果用户所选种类系统没有提供的解决方案，或者根本不需要管
     @Override
     public ResponseBox update(MultipartFile image, String animationName, String recommend, String[] animationTypes, String link, String animationInfo, String username) {
         Animation animationOriginal = animationRepository.getAnimationByName(animationName);
@@ -105,7 +103,7 @@ public class UserServiceImpl implements UserService {
             animationRepository.save(animation);
             return new ResponseBox(true, "你的推荐已成功上传");
         }
-        return new ResponseBox(false, "反正就是上传失败了");
+        return new ResponseBox(false, "推荐上传失败了");
     }
 
     @Override
@@ -157,7 +155,6 @@ public class UserServiceImpl implements UserService {
         return new ResponseBox(false, "请联系后台，unknown");
     }
 
-    //ToDO 清除存储文件
     @Override
     public ResponseBox deleteRecommend(String animationName, String username) {
         Animation animation = animationRepository.getAnimationByName(animationName);

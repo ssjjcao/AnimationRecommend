@@ -25,13 +25,13 @@ class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 // 角色检查 所有请求需要身份认证
                 .antMatchers("/user", "/attitude/", "/animation/getRecommendationsByUsernameAndPageNum", "/comment").hasRole("USER")
-                .antMatchers("/img/**", "/animation/**", "/comment/getAllComments", "/comment/getAllCommentsByAnimationNameAndPageNum", "/type/**").permitAll()
+                .antMatchers("/user/signUp","/img/**", "/animation/**", "/comment/getAllComments", "/comment/getAllCommentsByAnimationNameAndPageNum", "/type/**").permitAll()
                 // .antMatchers("/swagger-ui.html").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                // 添加一个过滤器 所有访问 登陆注册 的请求交给 JWTUserFilter 来处理 这个类处理所有的JWT相关内容
+                // 添加一个过滤器 所有访问 登陆 的请求交给 JWTUserFilter 来处理 这个类处理所有的JWT相关内容
                 .addFilterBefore(new JWTUserFilter("/user/signIn", authenticationManager(), getApplicationContext()), UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(new JWTUserFilter("/user/signUp", authenticationManager(), getApplicationContext()), UsernamePasswordAuthenticationFilter.class)
+//                .addFilterBefore(new JWTUserFilter("/user/signUp", authenticationManager(), getApplicationContext()), UsernamePasswordAuthenticationFilter.class)
                 // 添加一个过滤器验证其他请求的Token是否合法
                 .addFilterBefore(new JWTAuthenticationFilter(getApplicationContext()),
                         UsernamePasswordAuthenticationFilter.class);

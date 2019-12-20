@@ -167,11 +167,11 @@ function getAllComments() {
     });
 }
 
-function deleteComment(comment, row, hr) {
+function deleteComment(textarea, row, hr) {
     $.ajax({
         url: "http://127.0.0.1:8080/comment/deleteOneComment",
         method: 'post',
-        data: {comment: comment, username: username, animationName: animationName},
+        data: {comment: textarea.value, username: username, animationName: animationName},
         dataType: "json",
         beforeSend: function (request) {
             request.setRequestHeader("authorization", "Bearer " + getCookie("token"));
@@ -420,11 +420,11 @@ function getCommentsByPageNum() {
                     deleteButton.setAttribute("disabled", "disabled");
                     modifyButton.setAttribute("disabled", "disabled");
                 } else {
-                    (function (comment, row, hr) {
+                    (function (textarea, row, hr) {
                         deleteButton.addEventListener("click", function (ev) {
-                            deleteComment(comment, row, hr);
+                            deleteComment(textarea, row, hr);
                         });
-                    })(comments[i].comment.comment, row, hr);
+                    })(textarea, row, hr);
                     (function (textarea) {
                         modifyButton.addEventListener("click", function (ev) {
                             modifyComment(textarea);
