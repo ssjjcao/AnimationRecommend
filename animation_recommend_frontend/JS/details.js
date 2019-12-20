@@ -11,34 +11,32 @@ $.ajax({
     url: "http://127.0.0.1:8080/animation/updateAnimationPageViewByName",
     method: 'post',
     data: {animationName: animationName},
-    dataType: "json",
-    beforeSend: function (request) {
-        request.setRequestHeader("authorization", "Bearer " + getCookie("token"));
-    }
+    dataType: "json"
 });
 
-$.ajax({
-    url: "http://127.0.0.1:8080/attitude/getAttitudeByUsernameAndAnimationName",
-    method: 'get',
-    data: {username: username, animationName: animationName},
-    dataType: "json",
-    beforeSend: function (request) {
-        request.setRequestHeader("authorization", "Bearer " + getCookie("token"));
-    },
-    success: function (attitude) {
-        if (attitude) {
-            if (attitude.favorite) {
-                var like = document.getElementById("like");
-                like.classList.add("like");
-                like.setAttribute("src", "../img/已点赞.png")
-            } else {
-                var dislike = document.getElementById("dislike");
-                dislike.classList.add("dislike");
-                dislike.setAttribute("src", "../img/已点踩.png")
+if (username)
+    $.ajax({
+        url: "http://127.0.0.1:8080/attitude/getAttitudeByUsernameAndAnimationName",
+        method: 'get',
+        data: {username: username, animationName: animationName},
+        dataType: "json",
+        beforeSend: function (request) {
+            request.setRequestHeader("authorization", "Bearer " + getCookie("token"));
+        },
+        success: function (attitude) {
+            if (attitude) {
+                if (attitude.favorite) {
+                    var like = document.getElementById("like");
+                    like.classList.add("like");
+                    like.setAttribute("src", "../img/已点赞.png")
+                } else {
+                    var dislike = document.getElementById("dislike");
+                    dislike.classList.add("dislike");
+                    dislike.setAttribute("src", "../img/已点踩.png")
+                }
             }
         }
-    }
-});
+    });
 
 getCommentsByPageNum();
 
@@ -356,9 +354,6 @@ function getCommentsByPageNum() {
         method: 'get',
         data: {animationName: animationName, pageNum: nowPage},
         dataType: "json",
-        beforeSend: function (request) {
-            request.setRequestHeader("authorization", "Bearer " + getCookie("token"));
-        },
         success: function (result) {
             console.log(result);
             var comment_show = document.getElementById("comment_show");
@@ -444,7 +439,7 @@ function getCommentsByPageNum() {
                 document.getElementById("last").classList.remove("disabled");
             }
 
-            if (nowPage === totalPage && !document.getElementById("next").classList.contains("disabled")) {
+            if (nowPage >= totalPage && !document.getElementById("next").classList.contains("disabled")) {
                 document.getElementById("next").classList.add("disabled");
             } else if (nowPage < totalPage && document.getElementById("next").classList.contains("disabled")) {
                 document.getElementById("next").classList.remove("disabled");

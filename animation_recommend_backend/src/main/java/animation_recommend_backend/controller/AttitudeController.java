@@ -45,7 +45,7 @@ public class AttitudeController {
     @PostMapping(path = "stopDisliking")
     public @ResponseBody
     ResponseBox stopDisliking(@RequestParam String username, @RequestParam String animationName) {
-        return attitudeService.likeIt(username, animationName);
+        return attitudeService.stopDisliking(username, animationName);
     }
 
     @GetMapping(path = "getCollectionsByUsernameAndPageNum")

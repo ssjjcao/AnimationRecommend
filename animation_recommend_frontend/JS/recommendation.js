@@ -149,7 +149,7 @@ function getRecommendationsByPageNum() {
                 document.getElementById("last").classList.remove("disabled");
             }
 
-            if (nowPage === totalPage && !document.getElementById("next").classList.contains("disabled")) {
+            if (nowPage >= totalPage && !document.getElementById("next").classList.contains("disabled")) {
                 document.getElementById("next").classList.add("disabled");
             } else if (nowPage < totalPage && document.getElementById("next").classList.contains("disabled")) {
                 document.getElementById("next").classList.remove("disabled");
